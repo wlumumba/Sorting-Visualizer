@@ -17,6 +17,9 @@ public class Main extends Application {
 
         //Creating a print statement to output - Moses
         System.out.println("Hello, I am Moses");
+
+        //Cliff is creating a print statement
+        System.out.print("Hello, this is Ciff");
     }
 
 
