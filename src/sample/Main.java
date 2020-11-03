@@ -20,6 +20,10 @@ public class Main extends Application {
 
         //Cliff is creating a print statement
         System.out.print("Hello, this is Ciff");
+
+        //Khalid creating print statement
+        System.out.println("Hello, this is Khalid");
+
     }
 
 
