@@ -24,6 +24,9 @@ public class Main extends Application {
         //Khalid creating print statement
         System.out.println("Hello, this is Khalid");
 
+
+        //Teaching Khalid
+        int hello = 1;
     }
 
 
