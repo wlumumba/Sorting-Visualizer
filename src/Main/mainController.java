@@ -1,4 +1,4 @@
-package chaosApplication;
+package Main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
