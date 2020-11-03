@@ -14,6 +14,9 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+
+        //Creating a print statement to output - Moses
+        System.out.println("Hello, I am Moses");
     }
 
 
