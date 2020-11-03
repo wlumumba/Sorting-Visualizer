@@ -14,6 +14,9 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+
+        //Cliff is creating a print statement
+        System.out.print("Hello, this is Ciff");
     }
 
 
