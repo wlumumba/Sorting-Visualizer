@@ -1,4 +1,4 @@
-package chaosApplication;
+package Main;
 
 public class mainController {
 
