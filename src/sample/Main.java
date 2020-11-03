@@ -15,20 +15,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
-        //Creating a print statement to output - Moses
-        System.out.println("Hello, I am Moses");
-
-        //Cliff is creating a print statement
-        System.out.print("Hello, this is Ciff");
-
-        //Khalid creating print statement
-        System.out.println("Hello, this is Khalid");
-
-
-        //Teaching Khalid
-        int hello = 1;
     }
-
 
     public static void main(String[] args) {
 
