@@ -35,6 +35,8 @@ public class mainController implements Initializable
         Rectangle test = (Rectangle) hBox.getChildren().get(1);
         test.setHeight(40); //theoretically we can change the property of any rectangle
     }
+
+    /*
     private Slider slider;
     @FXML
     private Label label;
@@ -42,10 +44,10 @@ public class mainController implements Initializable
     public void onSliderChanged() {
         //Using onMouseRelease FXML::id defined label, setting the value of slider to the corresponding text box (see fxml for more)
     label.setText(slider.getValue()+" ");
-}
+    }*/
 
-    /*@Override
-    //public void initialize(URL location, ResourceBundle resources)
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
     {
 //        Rectangle rect;
 //        for(int i = 0; i < 50; i++)
