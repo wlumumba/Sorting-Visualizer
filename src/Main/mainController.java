@@ -7,12 +7,15 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,9 +35,17 @@ public class mainController implements Initializable
         Rectangle test = (Rectangle) hBox.getChildren().get(1);
         test.setHeight(40); //theoretically we can change the property of any rectangle
     }
+    private Slider slider;
+    @FXML
+    private Label label;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources)
+    public void onSliderChanged() {
+        //Using onMouseRelease FXML::id defined label, setting the value of slider to the corresponding text box (see fxml for more)
+    label.setText(slider.getValue()+" ");
+}
+
+    /*@Override
+    //public void initialize(URL location, ResourceBundle resources)
     {
 //        Rectangle rect;
 //        for(int i = 0; i < 50; i++)
