@@ -1,5 +1,8 @@
 package Main;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import java.awt.event.MouseEvent;
 import java.net.URL;
@@ -33,18 +37,14 @@ public class mainController implements Initializable
     void changeHeight(ActionEvent event)
     {
         Rectangle test = (Rectangle) hBox.getChildren().get(1);
-        test.setHeight(40); //theoretically we can change the property of any rectangle
+        //test.setHeight(40); //theoretically we can change the property of any rectangle
+
+        KeyValue heightValue = new KeyValue(test.heightProperty(), test.getHeight() - 25);
+        KeyFrame frame = new KeyFrame(Duration.seconds(2), heightValue);
+        Timeline timeline = new Timeline(frame);
+        timeline.play();
     }
 
-    /*
-    private Slider slider;
-    @FXML
-    private Label label;
-
-    public void onSliderChanged() {
-        //Using onMouseRelease FXML::id defined label, setting the value of slider to the corresponding text box (see fxml for more)
-    label.setText(slider.getValue()+" ");
-    }*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -89,6 +89,7 @@ public class mainController implements Initializable
         //HBox.setMargin(r1, new Insets(2, 2, 2, 2));
 
         hBox.getChildren().addAll(list);
+
 
         ///Testing looping over rectangles
         /*
