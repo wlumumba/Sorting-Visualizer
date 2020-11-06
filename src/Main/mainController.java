@@ -1,8 +1,6 @@
 package Main;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,54 +34,59 @@ public class mainController implements Initializable
     @FXML
     void changeHeight(ActionEvent event)
     {
-        Rectangle test = (Rectangle) hBox.getChildren().get(1);
-        //test.setHeight(40); //theoretically we can change the property of any rectangle
+        //Wrks as long as index < index1
+        int index = 8;
+        int index2 = 9;
+        Rectangle test = (Rectangle) hBox.getChildren().get(index);
+        Rectangle test1 = (Rectangle) hBox.getChildren().get(index2);
 
-        KeyValue heightValue = new KeyValue(test.heightProperty(), test.getHeight() - 25);
-        KeyFrame frame = new KeyFrame(Duration.seconds(2), heightValue);
-        Timeline timeline = new Timeline(frame);
-        timeline.play();
+
+        TranslateTransition st = new TranslateTransition(Duration.millis(2000), test);
+        st.setByX(33 * (index2-index));
+        //st.play();
+
+        TranslateTransition st1 = new TranslateTransition(Duration.millis(2000), test1);
+        st1.setToX(-33 * (index2-index));
+        //st1.play();
+
+        ParallelTransition sync = new ParallelTransition(st, st1);
+        sync.play();
+
+
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-//        Rectangle rect;
-//        for(int i = 0; i < 50; i++)
-//        {
-//            rect = new Rectangle(10, 20);
-//
-//            //hBox.setHgrow(rect, Priority.ALWAYS);
-//            hBox.setPrefWidth(400);
-//            hBox.setSpacing(5);
-//            hBox.getChildren().addAll(rect);
-//        }
+        //Number of rectangles
+        int numOfRecs = 10;
+        int hBoxX = 232;
 
 
         hBox.setSpacing(5);
         // 1 pixel padding between child nodes only
         //hBox.setPadding(new Insets(1));
 
+        Rectangle temp;
 
-        Rectangle r1 = new Rectangle(20, 100);
-        Rectangle r2 = new Rectangle(400,0,20, 100);
-        Rectangle r3 = new Rectangle(20, 20);
-        Rectangle r4 = new Rectangle(20, 50);
+        int width = (int) 331 / numOfRecs - 5; /* hBox width / numNodes - spacing */
 
-        int width = (int) 331 / 2 - 5; /* hBox width / numNodes - spacing */
-        r1.setWidth(width);
-        r2.setWidth(width);
-        r3.setWidth(width);
-        r4.setWidth(width);
 
         //hBox.setAlignment(Pos.BOTTOM_RIGHT);
-
+        int xVal = 0;
         ArrayList<Rectangle> list = new ArrayList<Rectangle>();
-        list.add(r1);
-        list.add(r2);
-        //list.add(r3);
-        //list.add(r4);
+        for(int i = 0; i < numOfRecs; i++)
+        {
+            temp = new Rectangle(width, 40 + (i*numOfRecs));
+            if(i == 0)
+                xVal = 0;
+            else
+                xVal += width + 5;
+            temp.setX( xVal );
+            list.add(temp);
+        }
+
 
 
         //HBox.setMargin(r1, new Insets(2, 2, 2, 2));
