@@ -31,7 +31,6 @@ public class mainController implements Initializable
     @FXML
     private Button change;
 
-
     @FXML
     void changeHeight(ActionEvent event)
     {
