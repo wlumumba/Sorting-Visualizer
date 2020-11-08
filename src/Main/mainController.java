@@ -16,7 +16,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,6 +30,10 @@ public class mainController implements Initializable
 
     @FXML
     private Button change;
+
+    //Declaring our array size slider to intake value
+    @FXML
+    private Slider sizeSlider;
 
     public static final int hBoxWidth = 780;
     public static final int hBoxHeight = 500;
@@ -83,6 +86,19 @@ public class mainController implements Initializable
 
         //Try to add a button method which changes size of rectangle
     }
-}
+
+    //Method that will intake slider values from the slider boxes, then calling the generator methods...
+    //OnRelease will clear hBox and call generator
+    public void sizeSliderSelection()
+    {
+        //Obtaining slider value and setting it into numOfRect
+        numOfRecs = (int) sizeSlider.getValue();
+        //Clearing hBox on drag release
+        hBox.getChildren().clear();
+
+    }//End sliderSelections
+
+
+}//End mainController class
 
 
