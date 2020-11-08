@@ -19,7 +19,7 @@ public class Main extends Application {
         AnchorPane root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Hello World");
 
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.show();
 
 

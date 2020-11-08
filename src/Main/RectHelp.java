@@ -1,6 +1,10 @@
 package Main;
 
-public class RectHelp
+import java.awt.*;
+
+public class RectHelp extends Rectangle
 {
+    private int height;
+
 
 }
