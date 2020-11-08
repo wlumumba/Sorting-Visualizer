@@ -16,6 +16,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
@@ -41,6 +42,8 @@ public class mainController implements Initializable
     public static final int spacing = 5;
 
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
+
+    static ArrayList<RectHelp> rects = new ArrayList<RectHelp>();
 
     @FXML
     void changeHeight(ActionEvent event)
@@ -72,7 +75,8 @@ public class mainController implements Initializable
     {
         hBox.setSpacing(spacing);
         hBox.setAlignment(Pos.TOP_CENTER);
-        hBox.getChildren().addAll(Model.generateRandomRects());
+        rects = Model.generateRandomRects();
+        hBox.getChildren().addAll(rects);
 
         ///Testing looping over rectangles
         /*

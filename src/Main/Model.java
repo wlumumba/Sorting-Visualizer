@@ -7,8 +7,8 @@ public class Model
 {
     public static ArrayList<RectHelp> generateRandomRects()
     {
-        ArrayList<RectHelp> rects = new ArrayList<RectHelp>();
-        Random rand = new Random();
+        ArrayList<RectHelp> tempArr = new ArrayList<RectHelp>();
+        Random rand = new Random();    //Creates random HEIGHTS, not RECTANGLES
         RectHelp temp;
         int xVal = 0;
 
@@ -24,9 +24,9 @@ public class Model
             temp.setWidth(mainController.widthOfRecs);
             temp.setHeight(h);
 
-            rects.add(temp);
+            tempArr.add(temp);
         }
 
-        return rects;
+        return tempArr;
     }
 }
