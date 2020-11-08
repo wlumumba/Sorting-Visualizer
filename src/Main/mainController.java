@@ -21,32 +21,40 @@ import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class mainController implements Initializable
 {
     @FXML
-    private HBox hBox; //need to figure out # of rectangles
+    private HBox hBox;
 
     @FXML
     private Button change;
+
+    public static final int hBoxWidth = 750;
+    public static final int hBoxHeight = 500;
+    public static int numOfRecs = 5;           //Can alter this value
+    public static final int spacing = 5;
+
+    public static int widthOfRecs = (int) hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
 
     @FXML
     void changeHeight(ActionEvent event)
     {
         //Wrks as long as index < index1
         int index = 0;
-        int index2 = 2;
+        int index2 = 1;
         Rectangle test = (Rectangle) hBox.getChildren().get(index);
         Rectangle test1 = (Rectangle) hBox.getChildren().get(index2);
 
 
         TranslateTransition st = new TranslateTransition(Duration.millis(2000), test);
-        st.setByX(110 * (index2-index)); //110 is width including spacing
+        st.setByX((hBoxWidth/numOfRecs) * (index2-index)); //110 is width including spacing
         //st.play();
 
         TranslateTransition st1 = new TranslateTransition(Duration.millis(2000), test1);
-        st1.setToX(-110 * (index2-index));
+        st1.setToX((-1 * hBoxWidth/numOfRecs) * (index2-index));
         //st1.play();
 
         ParallelTransition sync = new ParallelTransition(st, st1);
@@ -59,40 +67,9 @@ public class mainController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        //Number of rectangles
-        int numOfRecs = 3;
-        int hBoxX = 232;
+        hBox.setSpacing(spacing);
 
-
-        hBox.setSpacing(5);
-        // 1 pixel padding between child nodes only
-        //hBox.setPadding(new Insets(1));
-
-        Rectangle temp;
-
-        int width = (int) 331 / numOfRecs - 5; /* hBox width / numNodes - spacing */
-
-
-        //hBox.setAlignment(Pos.BOTTOM_RIGHT);
-        int xVal = 0;
-        ArrayList<Rectangle> list = new ArrayList<Rectangle>();
-        for(int i = 0; i < numOfRecs; i++)
-        {
-            temp = new Rectangle(width, 40 + (i*numOfRecs));
-            if(i == 0)
-                xVal = 0;
-            else
-                xVal += width + 5;
-            temp.setX( xVal );
-            list.add(temp);
-        }
-
-
-
-        //HBox.setMargin(r1, new Insets(2, 2, 2, 2));
-
-        hBox.getChildren().addAll(list);
-
+        hBox.getChildren().addAll(Model.generateRandomRects());
 
         ///Testing looping over rectangles
         /*
