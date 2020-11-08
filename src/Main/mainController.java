@@ -1,30 +1,22 @@
 package Main;
 
-import javafx.animation.*;
+import javafx.animation.ParallelTransition;
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class mainController implements Initializable
@@ -58,22 +50,25 @@ public class mainController implements Initializable
     @FXML
     void changeHeight(ActionEvent event)
     {
-        //Wrks as long as index < index1
-        int index = 0;
-        int index2 = 1;
-        Rectangle test = (Rectangle) hBox.getChildren().get(index);
-        Rectangle test1 = (Rectangle) hBox.getChildren().get(index2);
+//        //Wrks as long as index < index1
+//        int index = 0;
+//        int index2 = 1;
+//        Rectangle test = (Rectangle) hBox.getChildren().get(index);
+//        Rectangle test1 = (Rectangle) hBox.getChildren().get(index2);
+//
+//
+//        TranslateTransition st = new TranslateTransition(Duration.millis(2000), test);
+//        st.setByX((hBoxWidth/numOfRecs) * (index2-index)); //110 is width including spacing
+//        //st.play();
+//
+//        TranslateTransition st1 = new TranslateTransition(Duration.millis(2000), test1);
+//        st1.setToX((-1 * hBoxWidth/numOfRecs) * (index2-index));
+//        //st1.play();
+//
+//        ParallelTransition sync = new ParallelTransition(st, st1);
+//        sync.play();
 
-
-        TranslateTransition st = new TranslateTransition(Duration.millis(2000), test);
-        st.setByX((hBoxWidth/numOfRecs) * (index2-index)); //110 is width including spacing
-        //st.play();
-
-        TranslateTransition st1 = new TranslateTransition(Duration.millis(2000), test1);
-        st1.setToX((-1 * hBoxWidth/numOfRecs) * (index2-index));
-        //st1.play();
-
-        ParallelTransition sync = new ParallelTransition(st, st1);
+        ParallelTransition sync = Model.swapTwo(rects, 0, 1);
         sync.play();
 
 
@@ -121,14 +116,14 @@ public class mainController implements Initializable
         //Filling our hBox
         hBox.getChildren().addAll(rects);
 
-    }//End sizeSliderSelections
+    }
 
     //Method to intake speed slider selection
     //This value will determine the speed of the sort running
     public void speedSliderSelection()
     {
 
-    }//End speedSliderSelection
+    }
 
     //Method that will start the sorting and call other methods/sorts,etc...
     public void startButton (ActionEvent event) throws IOException

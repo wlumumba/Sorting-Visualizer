@@ -18,8 +18,8 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="479.0" prefWidth="174.0">
                <children>
-                  <Button fx:id="startSortBtn" layoutX="63.0" layoutY="30.0" mnemonicParsing="false" onAction="#startButton" text="Start Sort" />
-                  <Button fx:id="returnHomeBtn" layoutX="53.0" layoutY="430.0" mnemonicParsing="false" text="Return Home" onAction="#changeHeight"  />
+                  <Button fx:id="startSortBtn" layoutX="63.0" layoutY="30.0" mnemonicParsing="false" onAction="#changeHeight" text="Start Sort" />
+                  <Button fx:id="returnHomeBtn" layoutX="53.0" layoutY="430.0" mnemonicParsing="false" onAction="#changeHeight" text="Return Home" />
                   <TextArea fx:id="outputTextarea" layoutX="6.0" layoutY="158.0" prefHeight="189.0" prefWidth="185.0" />
                   <Label layoutX="45.0" layoutY="134.0" text="Output/Information:" />
                </children>
@@ -31,7 +31,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Slider fx:id="sizeSlider" onMouseReleased="#sizeSliderSelection" blockIncrement="5.0" layoutX="430.0" layoutY="552.0" majorTickUnit="10.0" max="50" min="10" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider fx:id="sizeSlider" blockIncrement="5.0" layoutX="430.0" layoutY="552.0" majorTickUnit="10.0" max="50" min="10" minorTickCount="0" onMouseReleased="#sizeSliderSelection" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <Slider fx:id="speedSlider" blockIncrement="5.0" layoutX="776.0" layoutY="552.0" majorTickUnit="10.0" max="50" min="10" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <ChoiceBox fx:id="sortChoiceBox" layoutX="116.0" layoutY="546.0" prefWidth="150.0" />
       <Label layoutX="37.0" layoutY="551.0" text="Algorithm:" />
