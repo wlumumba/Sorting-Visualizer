@@ -32,12 +32,12 @@ public class mainController implements Initializable
     @FXML
     private Button change;
 
-    public static final int hBoxWidth = 750;
+    public static final int hBoxWidth = 780;
     public static final int hBoxHeight = 500;
     public static int numOfRecs = 5;           //Can alter this value
     public static final int spacing = 5;
 
-    public static int widthOfRecs = (int) hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
+    public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
 
     @FXML
     void changeHeight(ActionEvent event)
@@ -68,7 +68,7 @@ public class mainController implements Initializable
     public void initialize(URL location, ResourceBundle resources)
     {
         hBox.setSpacing(spacing);
-
+        hBox.setAlignment(Pos.TOP_CENTER);
         hBox.getChildren().addAll(Model.generateRandomRects());
 
         ///Testing looping over rectangles

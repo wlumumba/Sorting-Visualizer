@@ -18,4 +18,9 @@ public class RectHelp extends Rectangle
         return this.height;
     }
 
+    public int getW()
+    {
+        return this.width;
+    }
+
 }
