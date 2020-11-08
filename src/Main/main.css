@@ -15,7 +15,7 @@
 }*/
 
 .root{
-    -fx-background-image: url('/images/mainPageBackground.png');
+    -fx-background-image: url('/Style/images/mainPageBackground.png');
     -fx-background-repeat: no-repeat;
     -fx-background-size: 1000 600;
     -fx-background-position: center center;
