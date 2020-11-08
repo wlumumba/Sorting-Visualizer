@@ -16,8 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        AnchorPane root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        primaryStage.setTitle("Hello World");
+        AnchorPane root = FXMLLoader.load(getClass().getResource("sortPage.fxml"));
+        primaryStage.setTitle("Sorting Visualizer");
 
         primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.show();
