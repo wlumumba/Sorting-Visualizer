@@ -1,6 +1,7 @@
 package Main;
 
 import javafx.animation.*;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
@@ -18,6 +20,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,12 +32,19 @@ public class mainController implements Initializable
     @FXML
     private HBox hBox;
 
-    @FXML
-    private Button change;
-
-    //Declaring our array size slider to intake value
+    //Declaring our array size slider to intake value and speedSlider
     @FXML
     private Slider sizeSlider;
+    @FXML
+    private Slider speedSlider;
+
+    //Declaring Start button
+    @FXML
+    private Button startSortBtn;
+
+    //Declaring choicebox to retreive selected sort
+    @FXML
+    private ChoiceBox sortChoiceBox;
 
     public static final int hBoxWidth = 780;
     public static final int hBoxHeight = 500;
@@ -77,6 +87,7 @@ public class mainController implements Initializable
         hBox.setAlignment(Pos.TOP_CENTER);
         rects = Model.generateRandomRects();
         hBox.getChildren().addAll(rects);
+        sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Cliff", "Moses"));
 
         ///Testing looping over rectangles
         /*
@@ -97,6 +108,7 @@ public class mainController implements Initializable
     {
         //Obtaining slider value and setting it into numOfRect
         numOfRecs = (int) sizeSlider.getValue();
+
         //Clearing hBox
         hBox.getChildren().clear();
 
@@ -109,7 +121,42 @@ public class mainController implements Initializable
         //Filling our hBox
         hBox.getChildren().addAll(rects);
 
-    }//End sliderSelections
+    }//End sizeSliderSelections
+
+    //Method to intake speed slider selection
+    //This value will determine the speed of the sort running
+    public void speedSliderSelection()
+    {
+
+    }//End speedSliderSelection
+
+    //Method that will start the sorting and call other methods/sorts,etc...
+    public void startButton (ActionEvent event) throws IOException
+    {
+        //Disabling slider selections so user cannot manipulate values during a sort, causing issues with animation
+        sizeSlider.setDisable(true);
+        speedSlider.setDisable(true);
+
+        //Checking what the passed in sort was from the choice box
+        String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (sortChoice == "Merge Sort")
+        {
+            System.out.print("This is a test of merge");
+            //Function call
+        }
+        else if (sortChoice == "Cliff")
+        {
+            System.out.print("This is a test of cliff");
+            //Function call
+        }
+
+        //Eventually re-enable sliders after sort completed (we could use a timer?) or have a prompt on sort completed saying "Try again?"
+        //sizeSlider.setDisable(false);
+        //speedSlider.setDisable(false);
+
+
+    }
 
 
 }//End mainController class
