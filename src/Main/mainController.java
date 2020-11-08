@@ -97,8 +97,17 @@ public class mainController implements Initializable
     {
         //Obtaining slider value and setting it into numOfRect
         numOfRecs = (int) sizeSlider.getValue();
-        //Clearing hBox on drag release
+        //Clearing hBox
         hBox.getChildren().clear();
+
+        //Resizing our width with the updated values
+        widthOfRecs = hBoxWidth / numOfRecs - spacing;
+
+        //Generating our rectangles using the passed in value from slider
+        rects = Model.generateRandomRects();
+
+        //Filling our hBox
+        hBox.getChildren().addAll(rects);
 
     }//End sliderSelections
 
