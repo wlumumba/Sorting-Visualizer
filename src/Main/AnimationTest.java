@@ -40,7 +40,6 @@ public class AnimationTest {
         }
 
         Scene scene = new Scene(grid, 350, 250);
-
         primaryStage.setTitle("Grid");
         primaryStage.setScene(scene);
         primaryStage.show();
