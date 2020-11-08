@@ -42,7 +42,7 @@ public class mainController implements Initializable
 
 
         TranslateTransition st = new TranslateTransition(Duration.millis(2000), test);
-        st.setByX(110 * (index2-index));
+        st.setByX(110 * (index2-index)); //110 is width including spacing
         //st.play();
 
         TranslateTransition st1 = new TranslateTransition(Duration.millis(2000), test1);
