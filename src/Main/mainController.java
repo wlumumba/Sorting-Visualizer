@@ -42,7 +42,7 @@ public class mainController implements Initializable
     public static final int hBoxHeight = 500;
     public static int numOfRecs = 5;           //Can alter this value
     public static final int spacing = 5;
-    public static int duration = 250;
+    public static int speed = 250;
 
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
 
@@ -56,7 +56,6 @@ public class mainController implements Initializable
         sync.play();
 
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -72,11 +71,14 @@ public class mainController implements Initializable
 
     }
 
-    //Method that will intake slider values from the slider boxes, then calling the generator methods...
+    //Method that will intake slider values from the slider boxes, then calling the generator methods
     //OnRelease will clear hBox and call generator
     public void sizeSliderSelection()
     {
-        //Obtaining slider value and setting it into numOfRect
+        //Obtaining slider value for speed
+        speed = (int) speedSlider.getValue();
+
+        //Obtaining slider value for size -> this will set the number of rectangles/array
         numOfRecs = (int) sizeSlider.getValue();
 
         //Clearing hBox
@@ -93,12 +95,6 @@ public class mainController implements Initializable
 
     }
 
-    //Method to intake speed slider selection
-    //This value will determine the speed of the sort running
-    public void speedSliderSelection()
-    {
-
-    }
 
     //Method that will start the sorting and call other methods/sorts,etc...
     public void startButton (ActionEvent event) throws IOException
@@ -127,6 +123,7 @@ public class mainController implements Initializable
             System.out.println(rects);
             sq.setOnFinished(f -> sizeSlider.setDisable(false));
             //Function call
+            sq.play();
         }
 
         //Eventually re-enable sliders after sort completed (we could use a timer?) or have a prompt on sort completed saying "Try again?"
