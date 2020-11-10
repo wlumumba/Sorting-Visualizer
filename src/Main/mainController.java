@@ -69,16 +69,6 @@ public class mainController implements Initializable
         //Setting default value of the choice box
         sortChoiceBox.setValue("Bubble Sort");
 
-        ///Testing looping over rectangles
-        /*
-        for(Node rec: hBox.getChildren())
-        {
-            //rec = (Rectangle) rec;
-            System.out.println(((Rectangle) rec).getHeight());
-        }
-        Rectangle test = (Rectangle) hBox.getChildren().get(1);
-        System.out.println((int)test.getHeight());*/
-
     }
 
     //Method that will intake slider values from the slider boxes, then calling the generator methods...
@@ -134,7 +124,7 @@ public class mainController implements Initializable
             sq.getChildren().addAll(start.swap(rects));
 
             System.out.println(rects);
-            sizeSlider.setDisable(false);
+            sq.setOnFinished(f -> sizeSlider.setDisable(false));
             //Function call
         }
 
