@@ -33,6 +33,10 @@ public class mainController implements Initializable
     @FXML
     private Button startSortBtn;
 
+    //Declaring Pause button
+    @FXML
+    private Button pauseSortBtn;
+
     //Declaring choicebox to retreive selected sort
     @FXML
     private ChoiceBox sortChoiceBox;
@@ -48,6 +52,9 @@ public class mainController implements Initializable
 
     static ArrayList<RectHelp> rects = new ArrayList<RectHelp>();
 
+    //Declare final list of transitions
+    SequentialTransition sq = new SequentialTransition(); //might have to clear??
+
     @FXML //Avoid
     void changeHeight(ActionEvent event)
     {
@@ -60,6 +67,9 @@ public class mainController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
+        //Disabling pause button for now, will be re-enabled upon start
+        pauseSortBtn.setDisable(true);
+
         hBox.setSpacing(spacing);
         hBox.setAlignment(Pos.TOP_CENTER);
         rects = Model.generateRandomRects();
@@ -101,9 +111,7 @@ public class mainController implements Initializable
     {
         //Calling disabler method to disallow user manipulation during sorting
         disabler(true);
-
-        //Declare final list of transitions
-        SequentialTransition sq = new SequentialTransition(); //might have to clear??
+        pauseSortBtn.setDisable(false);
 
         //Checking what the passed in sort was from the choice box
         String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
@@ -123,15 +131,40 @@ public class mainController implements Initializable
         }
 
         sq.play();
-        sq.setOnFinished(f -> sizeSlider.setDisable(false));
+        sq.setOnFinished(f -> {disabler(false); pauseSortBtn.setDisable(true);});
         sq.getChildren().clear();
 
-        //Eventually re-enable sliders after sort completed (we could use a timer?) or have a prompt on sort completed saying "Try again?"
-        //sizeSlider.setDisable(false);
-        //speedSlider.setDisable(false);
-
-
     }
+
+    //Pause button to disable sequential transition
+    public void pauseButton (ActionEvent event) throws IOException
+    {
+        //Checking what the button text is
+        if (pauseSortBtn.getText().equals("Pause Sort"))
+        {
+            //If button text = pause, will pause
+            sq.pause();
+            pauseSortBtn.setText("Play Sort");
+        }
+        else
+        {
+            //If button text not = pause, will play
+            sq.play();
+            pauseSortBtn.setText("Pause Sort");
+        }
+    }
+
+    //Possible stop button
+    //Current issue: Sorting starts from random area
+    /*public void stopButton (ActionEvent event) throws IOException
+    {
+        sq.stop();
+        sq.getChildren().clear();
+        sizeSlider.setValue(10);
+        speedSlider.setValue(250);
+        //hBox.getChildren().clear();
+        disabler(false);
+    }*/
 
     //Method that will intake boolean value for setDisable options for each buttons declared
     public void disabler (Boolean option)
