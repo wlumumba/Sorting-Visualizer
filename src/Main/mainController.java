@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class mainController implements Initializable
 {
+    //Declaring hBox - This will contain our rectangles
     @FXML
     private HBox hBox;
 
@@ -46,35 +47,39 @@ public class mainController implements Initializable
     private ChoiceBox sortChoiceBox;
 
     /* Instance variables */
-    public static final int hBoxWidth = 780;
-    public static final int hBoxHeight = 500;
-    public static int numOfRecs = 5;           //Can alter this value through slider
-    public static final int spacing = 5;
-    public static int speed = 250;  //Sets the speed of swaps in millis
+    public static final int hBoxWidth = 780; //Do not edit!
+    public static final int hBoxHeight = 500; //Do not edit!
+    public static int numOfRecs = 5; //This variable will contain the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
+    public static final int spacing = 5; //This is the spacing between the rectangles
+    public static int speed = 250;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
+    public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; // hBox width / numNodes - spacing, this is the math use to allow variance in array size
 
-    public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
-
+    //Declaring our arraylist that will contain both height and width of rectangles, see RectHelp.java for more
     static ArrayList<RectHelp> rects = new ArrayList<RectHelp>();
 
     //Declare final list of transitions
     SequentialTransition sq = new SequentialTransition(); //might have to clear??
 
+    //Initializing method that will be called upon screen launch
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         //Disabling pause button for now, will be re-enabled upon start
         pauseSortBtn.setDisable(true);
-
-        hBox.setSpacing(spacing);
-        hBox.setAlignment(Pos.TOP_CENTER);
-        rects = Model.generateRandomRects();
-        hBox.getChildren().addAll(rects);
         //Setting the choice box sort list
         sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
         //Setting default value of the choice box
         sortChoiceBox.setValue("Bubble Sort");
 
-    }
+
+        //Defining our hBox values, using the above declared variables (some may be dynamic)
+        hBox.setSpacing(spacing);
+        hBox.setAlignment(Pos.TOP_CENTER);
+        //Randomizing the rectangles (IE: Array elements, see Model.java), then adding the elements to our hBox
+        rects = Model.generateRandomRects();
+        hBox.getChildren().addAll(rects);
+
+    }//End initialize method
 
     //Method that will intake slider values from the slider boxes, then calling the generator methods
     //OnRelease will clear hBox and call generator
@@ -86,32 +91,32 @@ public class mainController implements Initializable
         //Obtaining slider value for size -> this will set the number of rectangles/array
         numOfRecs = (int) sizeSlider.getValue();
 
-        //Clearing hBox
         hBox.getChildren().clear();
 
         //Resizing our width with the updated values
         widthOfRecs = hBoxWidth / numOfRecs - spacing;
 
-        //Generating our rectangles using the passed in value from slider
+        //Generating our rectangles using the passed in value from slider, and filling our hBox
         rects = Model.generateRandomRects();
-
-        //Filling our hBox
         hBox.getChildren().addAll(rects);
 
-    }
+    }//End sliderSlection method
 
     //Method that will start the sorting and call other methods/sorts,etc...
     public void startButton (ActionEvent event)
     {
-        //Calling disabler method to disallow user manipulation during sorting
+        //Calling disabler method to disallow user manipulation during sorting, and enabling our pause button as previously disabled
         disabler(true);
         pauseSortBtn.setDisable(false);
 
         //Checking what the passed in sort was from the choice box
         String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
+
         //Calling our output function to print the arrays to textarea
         outputText.appendText("Initial Unsorted Array:\n");
         outputLog();
+
+        //Switch/case statements to pull user selection from choice box and call upon our sorting methods and begin animations
         switch (sortChoice)
         {
             case "Merge Sort":
@@ -126,7 +131,7 @@ public class mainController implements Initializable
                 break;
         }
 
-        //Playing our animation and running tasks on finished
+        //Playing our animation and running tasks on finished, then clearing SQ animation
         sq.play();
 
         sq.setOnFinished(f -> {
@@ -138,7 +143,7 @@ public class mainController implements Initializable
 
         sq.getChildren().clear();
 
-    }
+    }//End startButton method
 
     //Pause button to disable sequential transition
     public void pauseButton (ActionEvent event)
@@ -156,8 +161,9 @@ public class mainController implements Initializable
             sq.play();
             pauseSortBtn.setText("Pause Sort");
         }
-    }
+    }//End pauseButton
 
+   //Output method that will output our text to the textArea within our pane
    public void outputLog ()
     {
         //Initializing our string
@@ -180,7 +186,7 @@ public class mainController implements Initializable
             outputText.appendText("[ " + output +" ]\n\n");
         }
 
-    }
+    }//End outputLog method
 
     //Possible stop button
     //Current issue: Sorting starts from random area
@@ -205,8 +211,6 @@ public class mainController implements Initializable
     }//End disabler method
 
 
-
-
-}
+}//End mainController class
 
 
