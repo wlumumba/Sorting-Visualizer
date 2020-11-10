@@ -1,7 +1,9 @@
 package Main;
 
 import Sorts.BubbleSort;
+import javafx.animation.Animation;
 import javafx.animation.SequentialTransition;
+import javafx.animation.Transition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,7 +51,7 @@ public class mainController implements Initializable
     /* Instance variables */
     public static final int hBoxWidth = 780; //Do not edit!
     public static final int hBoxHeight = 500; //Do not edit!
-    public static int numOfRecs = 5; //This variable will contain the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
+    public static int numOfRecs = 5; //This variable contains the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
     public static final int spacing = 5; //This is the spacing between the rectangles
     public static int speed = 250;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; // hBox width / numNodes - spacing, this is the math use to allow variance in array size
@@ -70,7 +72,6 @@ public class mainController implements Initializable
         sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
         //Setting default value of the choice box
         sortChoiceBox.setValue("Bubble Sort");
-
 
         //Defining our hBox values, using the above declared variables (some may be dynamic)
         hBox.setSpacing(spacing);
@@ -190,15 +191,17 @@ public class mainController implements Initializable
 
     //Possible stop button
     //Current issue: Sorting starts from random area
-    /*public void stopButton (ActionEvent event) throws IOException
+    public void stopButton (ActionEvent event)
     {
         sq.stop();
         sq.getChildren().clear();
         sizeSlider.setValue(10);
         speedSlider.setValue(250);
-        //hBox.getChildren().clear();
+        hBox.getChildren().clear();
+        rects = Model.generateRandomRects();
+        hBox.getChildren().addAll(rects);
         disabler(false);
-    }*/
+    }
 
     //Method that will intake boolean value for setDisable options for each buttons declared
     public void disabler (Boolean option)
