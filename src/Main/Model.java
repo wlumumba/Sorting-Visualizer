@@ -22,7 +22,7 @@ public class Model
 
         for(int i = 0; i < mainController.numOfRecs; i++)
         {
-            int h = rand.nextInt(mainController.hBoxHeight-20) + 20;
+            int h = rand.nextInt(mainController.hBoxHeight-20) + 20;  //Generate random height
             temp = new RectHelp(mainController.widthOfRecs, h);
             if(i != 0)
                 xVal += mainController.widthOfRecs + 5;
@@ -37,6 +37,7 @@ public class Model
         return tempArr;
     }
 
+    /* Color animates the comparison of two bars */
     public static ParallelTransition colorTwo(ArrayList<RectHelp> rects, int leftI, int rightI, Color color)
     {
         ParallelTransition sync = new ParallelTransition();

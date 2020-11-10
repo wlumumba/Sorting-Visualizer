@@ -1,9 +1,7 @@
 package Main;
 
 import Sorts.BubbleSort;
-import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +16,6 @@ import javafx.scene.layout.HBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class mainController implements Initializable
@@ -104,7 +101,7 @@ public class mainController implements Initializable
     }
 
     //Method that will start the sorting and call other methods/sorts,etc...
-    public void startButton (ActionEvent event) throws IOException
+    public void startButton (ActionEvent event)
     {
         //Calling disabler method to disallow user manipulation during sorting
         disabler(true);
@@ -144,7 +141,7 @@ public class mainController implements Initializable
     }
 
     //Pause button to disable sequential transition
-    public void pauseButton (ActionEvent event) throws IOException
+    public void pauseButton (ActionEvent event)
     {
         //Checking what the button text is
         if (pauseSortBtn.getText().equals("Pause Sort"))

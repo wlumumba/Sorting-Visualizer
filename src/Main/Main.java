@@ -18,6 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         AnchorPane root = FXMLLoader.load(getClass().getResource("/Style/fxmls/sortPage.fxml"));
         primaryStage.setTitle("Sorting Visualizer");
+        primaryStage.setResizable(false);
 
         primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.show();
