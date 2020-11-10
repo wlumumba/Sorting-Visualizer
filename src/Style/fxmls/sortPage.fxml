@@ -18,7 +18,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="479.0" prefWidth="174.0">
                <children>
-                  <Button fx:id="startSortBtn" layoutX="63.0" layoutY="30.0" mnemonicParsing="false" onAction="#changeHeight" text="Start Sort" />
+                  <Button fx:id="startSortBtn" layoutX="63.0" layoutY="30.0" mnemonicParsing="false" onAction="#startButton" text="Start Sort" />
                   <Button fx:id="returnHomeBtn" layoutX="53.0" layoutY="430.0" mnemonicParsing="false" onAction="#changeHeight" text="Return Home" />
                   <TextArea fx:id="outputTextarea" layoutX="6.0" layoutY="158.0" prefHeight="189.0" prefWidth="185.0" />
                   <Label layoutX="45.0" layoutY="134.0" text="Output/Information:" />

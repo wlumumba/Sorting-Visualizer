@@ -23,4 +23,11 @@ public class RectHelp extends Rectangle
         return this.width;
     }
 
+    @Override
+    public String toString() {
+        return "RectHelp{" +
+                "height=" + height +
+                ", width=" + width +
+                '}';
+    }
 }

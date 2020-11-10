@@ -1,5 +1,6 @@
 package Main;
 
+import Sorts.BubbleSort;
 import javafx.animation.ParallelTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -62,7 +63,7 @@ public class mainController implements Initializable
         hBox.setAlignment(Pos.TOP_CENTER);
         rects = Model.generateRandomRects();
         hBox.getChildren().addAll(rects);
-        sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Cliff", "Moses"));
+        sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
 
         ///Testing looping over rectangles
         /*
@@ -119,9 +120,13 @@ public class mainController implements Initializable
             System.out.print("This is a test of merge");
             //Function call
         }
-        else if (sortChoice == "Cliff")
+        else if (sortChoice == "Bubble Sort")
         {
             System.out.print("This is a test of cliff");
+            System.out.println(rects);
+            BubbleSort start = new BubbleSort();
+            start.swap(rects);
+            System.out.println(rects);
             //Function call
         }
 

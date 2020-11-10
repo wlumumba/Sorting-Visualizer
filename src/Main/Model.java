@@ -2,6 +2,7 @@ package Main;
 
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Model
             temp.setX( xVal );
             temp.setWidth(mainController.widthOfRecs);
             temp.setHeight(h);
+            temp.setFill(Color.LIGHTSLATEGRAY);
 
             tempArr.add(temp);
         }
