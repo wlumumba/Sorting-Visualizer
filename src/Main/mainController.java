@@ -42,13 +42,13 @@ public class mainController implements Initializable
     public static final int hBoxHeight = 500;
     public static int numOfRecs = 5;           //Can alter this value
     public static final int spacing = 5;
-    public static int duration = 250;
+    public static int duration = 250; //Speed of the swaps in millis
 
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
 
     static ArrayList<RectHelp> rects = new ArrayList<RectHelp>();
 
-    @FXML
+    @FXML //Avoid
     void changeHeight(ActionEvent event)
     {
         //Works as long as index < index1
@@ -107,27 +107,29 @@ public class mainController implements Initializable
         sizeSlider.setDisable(true);
         speedSlider.setDisable(true);
 
+        //Declare final list of transitions
+        SequentialTransition sq = new SequentialTransition(); //might have to clear??
+
         //Checking what the passed in sort was from the choice box
         String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
 
-        if (sortChoice == "Merge Sort") //Lets use a switch case maybe
+        switch (sortChoice)
         {
-            System.out.print("This is a test of merge");
-            //Function call
-        }
-        else if (sortChoice == "Bubble Sort")
-        {
-            System.out.print("This is a test of cliff");
-            System.out.println(rects);
-            BubbleSort start = new BubbleSort();
+            case "Merge Sort":
+                System.out.print("This is a test of merge");
+                break;
 
-            SequentialTransition sq = new SequentialTransition();
-            sq.getChildren().addAll(start.swap(rects));
-
-            System.out.println(rects);
-            sq.setOnFinished(f -> sizeSlider.setDisable(false));
-            //Function call
+            case "Bubble Sort":
+                BubbleSort start = new BubbleSort();
+                System.out.println(rects);
+                sq.getChildren().addAll(start.swap(rects));
+                System.out.println(rects);
+                break;
         }
+
+        sq.play();
+        sq.setOnFinished(f -> sizeSlider.setDisable(false));
+        sq.getChildren().clear();
 
         //Eventually re-enable sliders after sort completed (we could use a timer?) or have a prompt on sort completed saying "Try again?"
         //sizeSlider.setDisable(false);
