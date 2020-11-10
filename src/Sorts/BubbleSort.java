@@ -6,7 +6,6 @@ import javafx.animation.ParallelTransition;
 import javafx.animation.Transition;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class BubbleSort
 {

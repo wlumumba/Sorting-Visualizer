@@ -63,7 +63,7 @@ public class Model
     /* Moving one bar TranslateTransition method */
     public static TranslateTransition moveByX(RectHelp rect, int x)
     {
-        TranslateTransition moveThis = new TranslateTransition(Duration.millis(2000), rect);
+        TranslateTransition moveThis = new TranslateTransition(Duration.millis(mainController.duration), rect);
         moveThis.setByX(x);
         return moveThis;
     }

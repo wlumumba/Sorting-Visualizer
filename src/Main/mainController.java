@@ -42,6 +42,7 @@ public class mainController implements Initializable
     public static final int hBoxHeight = 500;
     public static int numOfRecs = 5;           //Can alter this value
     public static final int spacing = 5;
+    public static int duration = 250;
 
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
 
