@@ -42,7 +42,7 @@ public class Model
         ParallelTransition sync = new ParallelTransition();
         FillTransition fill = new FillTransition();
 
-
+        return sync;
     }
 
     /* Transition of swapping two bars */
