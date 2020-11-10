@@ -73,7 +73,7 @@ public class mainController implements Initializable
 
     //Method that will intake slider values from the slider boxes, then calling the generator methods
     //OnRelease will clear hBox and call generator
-    public void sizeSliderSelection()
+    public void sliderSelection()
     {
         //Obtaining slider value for speed
         speed = (int) speedSlider.getValue();
