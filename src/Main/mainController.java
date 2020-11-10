@@ -65,7 +65,10 @@ public class mainController implements Initializable
         hBox.setAlignment(Pos.TOP_CENTER);
         rects = Model.generateRandomRects();
         hBox.getChildren().addAll(rects);
+        //Setting the choice box sort list
         sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
+        //Setting default value of the choice box
+        sortChoiceBox.setValue("Bubble Sort");
 
     }
 
@@ -120,7 +123,6 @@ public class mainController implements Initializable
 
             SequentialTransition sq = new SequentialTransition();
             sq.getChildren().addAll(start.swap(rects));
-            sq.play();
 
             System.out.println(rects);
             sq.setOnFinished(f -> sizeSlider.setDisable(false));
