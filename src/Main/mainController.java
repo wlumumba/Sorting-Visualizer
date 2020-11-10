@@ -40,23 +40,13 @@ public class mainController implements Initializable
     /* Instance variables */
     public static final int hBoxWidth = 780;
     public static final int hBoxHeight = 500;
-    public static int numOfRecs = 5;           //Can alter this value
+    public static int numOfRecs = 5;           //Can alter this value through slider
     public static final int spacing = 5;
-    public static int speed = 250;
+    public static int speed = 250;  //Sets the speed of swaps in millis
 
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; /* hBox width / numNodes - spacing */
 
     static ArrayList<RectHelp> rects = new ArrayList<RectHelp>();
-
-    @FXML //Avoid
-    void changeHeight(ActionEvent event)
-    {
-        //Works as long as index < index1
-        ParallelTransition sync = Model.swapTwo(rects, 0, 4);
-        sync.play();
-
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources)

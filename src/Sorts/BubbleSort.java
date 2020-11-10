@@ -16,6 +16,7 @@ public class BubbleSort
         this.transitionsList = new ArrayList<>();
     }
 
+    //Swaps literal elements and adds series of parallel transitions to transitionList
     public ArrayList<Transition> swap(ArrayList<RectHelp> rects)
     {
         ParallelTransition sp;

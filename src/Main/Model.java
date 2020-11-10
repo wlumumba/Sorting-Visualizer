@@ -1,5 +1,6 @@
 package Main;
 
+import javafx.animation.FillTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.paint.Color;
@@ -36,19 +37,20 @@ public class Model
         return tempArr;
     }
 
+    public static ParallelTransition colorTwo(ArrayList<RectHelp> rects, int leftI, int rightI)
+    {
+        ParallelTransition sync = new ParallelTransition();
+        FillTransition fill = new FillTransition();
+
+
+    }
+
     /* Transition of swapping two bars */
     public static ParallelTransition swapTwo(ArrayList<RectHelp> rects, int leftI, int rightI)
     {
         ParallelTransition sync = new ParallelTransition();
         int diff = rightI - leftI;  //Basically how many rectangles to move over
         int widthAndSpace = mainController.hBoxWidth/mainController.numOfRecs; //Width and spacing of each rec
-
-        /*TranslateTransition left = new TranslateTransition(Duration.millis(2000), rects.get(leftI));
-        left.setByX((mainController.hBoxWidth/mainController.numOfRecs) * (diff));
-
-        TranslateTransition right = new TranslateTransition(Duration.millis(2000), rects.get(rightI));
-        right.setByX((-1 * mainController.hBoxWidth/mainController.numOfRecs) * (diff));*/
-
 
         //Works as long as leftIndex < rightIndex
         sync.getChildren().addAll(moveByX(rects.get(leftI), (widthAndSpace * diff)), moveByX(rects.get(rightI), (-widthAndSpace * diff)) );
