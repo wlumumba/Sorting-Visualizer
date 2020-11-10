@@ -33,7 +33,7 @@ public class mainController implements Initializable
     @FXML
     private Button startSortBtn;
 
-    //Declaring choicebox to retrieve selected sort
+    //Declaring choicebox to retreive selected sort
     @FXML
     private ChoiceBox sortChoiceBox;
 
@@ -48,7 +48,7 @@ public class mainController implements Initializable
 
     static ArrayList<RectHelp> rects = new ArrayList<RectHelp>();
 
-    @FXML
+    @FXML //Avoid
     void changeHeight(ActionEvent event)
     {
         //Works as long as index < index1
@@ -102,28 +102,29 @@ public class mainController implements Initializable
         //Calling disabler method to disallow user manipulation during sorting
         disabler(true);
 
+        //Declare final list of transitions
+        SequentialTransition sq = new SequentialTransition(); //might have to clear??
+
         //Checking what the passed in sort was from the choice box
         String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
 
-        if (sortChoice == "Merge Sort") //Lets use a switch case maybe
+        switch (sortChoice)
         {
-            System.out.print("This is a test of merge");
-            //Function call
-        }
-        else if (sortChoice == "Bubble Sort")
-        {
-            System.out.print("This is a test of cliff");
-            System.out.println(rects);
-            BubbleSort start = new BubbleSort();
+            case "Merge Sort":
+                System.out.print("This is a test of merge");
+                break;
 
-            SequentialTransition sq = new SequentialTransition();
-            sq.getChildren().addAll(start.swap(rects));
-
-            System.out.println(rects);
-            sq.setOnFinished(f -> disabler(false));
-            //Function call
-            sq.play();
+            case "Bubble Sort":
+                BubbleSort start = new BubbleSort();
+                System.out.println(rects);
+                sq.getChildren().addAll(start.swap(rects));
+                System.out.println(rects);
+                break;
         }
+
+        sq.play();
+        sq.setOnFinished(f -> sizeSlider.setDisable(false));
+        sq.getChildren().clear();
 
         //Eventually re-enable sliders after sort completed (we could use a timer?) or have a prompt on sort completed saying "Try again?"
         //sizeSlider.setDisable(false);
