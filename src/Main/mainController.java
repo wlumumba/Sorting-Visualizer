@@ -33,7 +33,7 @@ public class mainController implements Initializable
     @FXML
     private Button startSortBtn;
 
-    //Declaring choicebox to retreive selected sort
+    //Declaring choicebox to retrieve selected sort
     @FXML
     private ChoiceBox sortChoiceBox;
 
@@ -99,9 +99,8 @@ public class mainController implements Initializable
     //Method that will start the sorting and call other methods/sorts,etc...
     public void startButton (ActionEvent event) throws IOException
     {
-        //Disabling slider selections so user cannot manipulate values during a sort, causing issues with animation
-        sizeSlider.setDisable(true);
-        speedSlider.setDisable(true);
+        //Calling disabler method to disallow user manipulation during sorting
+        disabler(true);
 
         //Checking what the passed in sort was from the choice box
         String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
@@ -121,7 +120,7 @@ public class mainController implements Initializable
             sq.getChildren().addAll(start.swap(rects));
 
             System.out.println(rects);
-            sq.setOnFinished(f -> sizeSlider.setDisable(false));
+            sq.setOnFinished(f -> disabler(false));
             //Function call
             sq.play();
         }
@@ -132,6 +131,16 @@ public class mainController implements Initializable
 
 
     }
+
+    //Method that will intake boolean value for setDisable options for each buttons declared
+    public void disabler (Boolean option)
+    {
+        sizeSlider.setDisable(option);
+        speedSlider.setDisable(option);
+        startSortBtn.setDisable(option);
+        sortChoiceBox.setDisable(option);
+
+    }//End disabler method
 
 
 }
