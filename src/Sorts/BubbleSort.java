@@ -10,11 +10,11 @@ import java.util.Collections;
 
 public class BubbleSort
 {
-    public ArrayList<Transition> transitions;
+    public ArrayList<Transition> transitionsList;
 
     public BubbleSort()
     {
-        this.transitions = new ArrayList<>();
+        this.transitionsList = new ArrayList<>();
     }
 
     public ArrayList<Transition> swap(ArrayList<RectHelp> rects)
@@ -29,11 +29,11 @@ public class BubbleSort
                 if(rects.get(j).getH() > rects.get(j+1).getH())
                 {
                     sp = Model.swapTwo(rects, j, j+1);
-                    this.transitions.add(sp);
+                    this.transitionsList.add(sp);
                 }
             }
         }
 
-        return transitions;
+        return transitionsList;
     }
 }

@@ -66,16 +66,6 @@ public class mainController implements Initializable
         hBox.getChildren().addAll(rects);
         sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
 
-        ///Testing looping over rectangles
-        /*
-        for(Node rec: hBox.getChildren())
-        {
-            //rec = (Rectangle) rec;
-            System.out.println(((Rectangle) rec).getHeight());
-        }
-        Rectangle test = (Rectangle) hBox.getChildren().get(1);
-        System.out.println((int)test.getHeight());*/
-
     }
 
     //Method that will intake slider values from the slider boxes, then calling the generator methods...
@@ -132,7 +122,7 @@ public class mainController implements Initializable
             sq.play();
 
             System.out.println(rects);
-            sizeSlider.setDisable(false);
+            sq.setOnFinished(f -> sizeSlider.setDisable(false));
             //Function call
         }
 
