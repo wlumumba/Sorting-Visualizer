@@ -3,6 +3,7 @@ package Main;
 import Sorts.BubbleSort;
 import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,11 +12,13 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class mainController implements Initializable
@@ -36,6 +39,10 @@ public class mainController implements Initializable
     //Declaring Pause button
     @FXML
     private Button pauseSortBtn;
+
+    //Declaring output text area
+    @FXML
+    private TextArea outputText;
 
     //Declaring choicebox to retreive selected sort
     @FXML
@@ -96,7 +103,6 @@ public class mainController implements Initializable
 
     }
 
-
     //Method that will start the sorting and call other methods/sorts,etc...
     public void startButton (ActionEvent event) throws IOException
     {
@@ -115,12 +121,14 @@ public class mainController implements Initializable
 
             case "Bubble Sort":
                 BubbleSort start = new BubbleSort();
-                System.out.println(rects);
+                //System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
-                System.out.println(rects);
+                //System.out.println(rects);
                 break;
         }
-
+        //Calling our output function to print the arrays to textarea
+        outputLog();
+        //Playing our animation and running tasks on finished
         sq.play();
         sq.setOnFinished(f -> {disabler(false); pauseSortBtn.setDisable(true);});
         sq.getChildren().clear();
@@ -145,6 +153,30 @@ public class mainController implements Initializable
         }
     }
 
+   public void outputLog ()
+    {
+        //Initializing our string
+        String output = " ";
+
+        //Checking our array size
+        for(int i = 0; i < rects.size(); i++)
+        {
+            //Setting the string to each element index (using getH, H = element size)
+            output += rects.get(i).getH() + ", ";
+        }
+        //Manipulating string output
+        output = output.substring(0, output.length() - 2);
+        //System.out.print("Initial Array: [ " + output +" ]");
+
+        //Checking if textArea is not null, then outputting our array
+        if (outputText != null )
+        {
+            outputText.appendText("Initial Array:\n");
+            outputText.appendText("[ " + output +" ]\n\n");
+        }
+
+    }
+
     //Possible stop button
     //Current issue: Sorting starts from random area
     /*public void stopButton (ActionEvent event) throws IOException
@@ -166,6 +198,8 @@ public class mainController implements Initializable
         sortChoiceBox.setDisable(option);
 
     }//End disabler method
+
+
 
 
 }
