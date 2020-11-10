@@ -112,7 +112,9 @@ public class mainController implements Initializable
 
         //Checking what the passed in sort was from the choice box
         String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
-
+        //Calling our output function to print the arrays to textarea
+        outputText.appendText("Initial Unsorted Array:\n");
+        outputLog();
         switch (sortChoice)
         {
             case "Merge Sort":
@@ -126,11 +128,17 @@ public class mainController implements Initializable
                 //System.out.println(rects);
                 break;
         }
-        //Calling our output function to print the arrays to textarea
-        outputLog();
+
         //Playing our animation and running tasks on finished
         sq.play();
-        sq.setOnFinished(f -> {disabler(false); pauseSortBtn.setDisable(true);});
+
+        sq.setOnFinished(f -> {
+            disabler(false);
+            pauseSortBtn.setDisable(true);
+            outputText.appendText("Sorted Array:\n");
+            outputLog();
+        });
+
         sq.getChildren().clear();
 
     }
@@ -171,7 +179,7 @@ public class mainController implements Initializable
         //Checking if textArea is not null, then outputting our array
         if (outputText != null )
         {
-            outputText.appendText("Initial Array:\n");
+            //outputText.appendText("Initial Array:\n");
             outputText.appendText("[ " + output +" ]\n\n");
         }
 
