@@ -55,15 +55,6 @@ public class mainController implements Initializable
     //Declare final list of transitions
     SequentialTransition sq = new SequentialTransition(); //might have to clear??
 
-    @FXML //Avoid
-    void changeHeight(ActionEvent event)
-    {
-        //Works as long as index < index1
-        ParallelTransition sync = Model.swapTwo(rects, 0, 4);
-        sync.play();
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -125,7 +116,7 @@ public class mainController implements Initializable
             case "Bubble Sort":
                 BubbleSort start = new BubbleSort();
                 System.out.println(rects);
-                sq.getChildren().addAll(start.swap(rects));
+                sq.getChildren().addAll(start.bubble(rects));
                 System.out.println(rects);
                 break;
         }

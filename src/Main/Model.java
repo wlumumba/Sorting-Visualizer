@@ -37,11 +37,28 @@ public class Model
         return tempArr;
     }
 
-    public static ParallelTransition colorTwo(ArrayList<RectHelp> rects, int leftI, int rightI)
+    public static ParallelTransition colorTwo(ArrayList<RectHelp> rects, int leftI, int rightI, Color color)
     {
         ParallelTransition sync = new ParallelTransition();
-        FillTransition fill = new FillTransition();
 
+        FillTransition fill;
+        fill = new FillTransition(Duration.millis(100), rects.get(leftI));
+        fill.setToValue(color);
+        sync.getChildren().add(fill);
+
+        fill = new FillTransition(Duration.millis(100), rects.get(rightI));
+        fill.setToValue(color);
+        sync.getChildren().add(fill);
+
+
+        /*for (int i = 0; i < 2; i++)
+        {
+            FillTransition fill = new FillTransition();
+            fill.setShape(rects.get(leftI));
+            fill.setToValue(color);
+            fill.setDuration(Duration.millis(100));
+            sync.getChildren().add(fill);
+        }*/
         return sync;
     }
 
