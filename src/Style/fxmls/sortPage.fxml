@@ -17,7 +17,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="479.0" prefWidth="174.0">
                <children>
                   <Button fx:id="startSortBtn" layoutX="45.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="100" minHeight="-Infinity" minWidth="100" mnemonicParsing="false" onAction="#startButton" text="Start Sort" />
-                  <Button fx:id="returnHomeBtn" layoutX="53.0" layoutY="430.0" mnemonicParsing="false" onAction="#changeHeight" text="Return Home" />
+                  <Button fx:id="returnHomeBtn" layoutX="53.0" layoutY="430.0" mnemonicParsing="false" text="Return Home" />
                   <Label layoutX="45.0" layoutY="134.0" text="Output/Information:" />
                   <Button fx:id="pauseSortBtn" layoutX="45.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="100" minHeight="-Infinity" minWidth="100" mnemonicParsing="false" onAction="#pauseButton" text="Pause Sort" />
                   <Button fx:id="stopSortBtn" layoutX="45.0" layoutY="94.0" maxHeight="-Infinity" maxWidth="100" minHeight="-Infinity" minWidth="100" mnemonicParsing="false" onAction="#pauseButton" text="Stop Sort" />
