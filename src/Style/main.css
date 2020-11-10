@@ -38,3 +38,7 @@
     -fx-background-radius: 15px;
     -fx-stroke-width: 1
 }
+
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+}

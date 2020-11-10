@@ -3,17 +3,20 @@ package Main;
 import Sorts.BubbleSort;
 import javafx.animation.Animation;
 import javafx.animation.SequentialTransition;
-import javafx.animation.Transition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,6 +43,10 @@ public class mainController implements Initializable
     @FXML
     private Button pauseSortBtn;
 
+    //Declaring stop button
+    @FXML
+    private Button stopSortBtn;
+
     //Declaring output text area
     @FXML
     private TextArea outputText;
@@ -49,9 +56,9 @@ public class mainController implements Initializable
     private ChoiceBox sortChoiceBox;
 
     /* Instance variables */
-    public static final int hBoxWidth = 780; //Do not edit!
+    public static final int hBoxWidth = 815; //Do not edit!
     public static final int hBoxHeight = 500; //Do not edit!
-    public static int numOfRecs = 5; //This variable contains the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
+    public static int numOfRecs = 5; //This variable will contain the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
     public static final int spacing = 5; //This is the spacing between the rectangles
     public static int speed = 250;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; // hBox width / numNodes - spacing, this is the math use to allow variance in array size
@@ -72,6 +79,7 @@ public class mainController implements Initializable
         sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
         //Setting default value of the choice box
         sortChoiceBox.setValue("Bubble Sort");
+
 
         //Defining our hBox values, using the above declared variables (some may be dynamic)
         hBox.setSpacing(spacing);
@@ -189,18 +197,19 @@ public class mainController implements Initializable
 
     }//End outputLog method
 
-    //Possible stop button
-    //Current issue: Sorting starts from random area
-    public void stopButton (ActionEvent event)
-    {
-        sq.stop();
-        sq.getChildren().clear();
-        sizeSlider.setValue(10);
-        speedSlider.setValue(250);
-        hBox.getChildren().clear();
-        rects = Model.generateRandomRects();
-        hBox.getChildren().addAll(rects);
-        disabler(false);
+    //This is a really weird/bad method, basically grabbing current window and relaunching our fxml.
+    public void stopButton (ActionEvent event) throws IOException{
+
+        Stage currentStage = (Stage) stopSortBtn.getScene().getWindow();
+        currentStage.close();
+
+        Stage relaunchStage = new Stage();
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/Style/fxmls/sortPage.fxml"));
+        relaunchStage.setTitle("Sorting Visualizer");
+        relaunchStage.setResizable(false);
+        relaunchStage.setScene(new Scene(root, 1000, 600));
+        relaunchStage.show();
+
     }
 
     //Method that will intake boolean value for setDisable options for each buttons declared
