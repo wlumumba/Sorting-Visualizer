@@ -42,7 +42,7 @@ public class Model
         ParallelTransition sync = new ParallelTransition();
 
         FillTransition fill;
-        fill = new FillTransition(Duration.millis(100), rects.get(leftI));
+        fill = new FillTransition(Duration.millis(100), rects.get(leftI)); ////Remember to make speed here dynamic
         fill.setToValue(color);
         sync.getChildren().add(fill);
 

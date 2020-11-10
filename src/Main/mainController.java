@@ -44,7 +44,7 @@ public class mainController implements Initializable
     @FXML
     private TextArea outputText;
 
-    //Declaring choicebox to retreive selected sort
+    //Declaring choicebox to retrieve selected sort
     @FXML
     private ChoiceBox sortChoiceBox;
 
