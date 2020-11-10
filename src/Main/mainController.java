@@ -2,6 +2,7 @@ package Main;
 
 import Sorts.BubbleSort;
 import javafx.animation.ParallelTransition;
+import javafx.animation.SequentialTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -125,8 +126,13 @@ public class mainController implements Initializable
             System.out.print("This is a test of cliff");
             System.out.println(rects);
             BubbleSort start = new BubbleSort();
-            start.swap(rects);
+
+            SequentialTransition sq = new SequentialTransition();
+            sq.getChildren().addAll(start.swap(rects));
+            sq.play();
+
             System.out.println(rects);
+            sizeSlider.setDisable(false);
             //Function call
         }
 

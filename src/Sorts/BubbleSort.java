@@ -1,6 +1,8 @@
 package Sorts;
 
+import Main.Model;
 import Main.RectHelp;
+import javafx.animation.ParallelTransition;
 import javafx.animation.Transition;
 
 import java.util.ArrayList;
@@ -17,6 +19,8 @@ public class BubbleSort
 
     public ArrayList<Transition> swap(ArrayList<RectHelp> rects)
     {
+        ParallelTransition sp;
+
         int i, j;
         for(i = 0; i < rects.size()-1; i++)
         {
@@ -24,7 +28,8 @@ public class BubbleSort
             {
                 if(rects.get(j).getH() > rects.get(j+1).getH())
                 {
-                    Collections.swap(rects, j, j+1);
+                    sp = Model.swapTwo(rects, j, j+1);
+                    this.transitions.add(sp);
                 }
             }
         }
