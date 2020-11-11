@@ -20,16 +20,16 @@ public class Model
         RectHelp temp;
         int xVal = 0;   //To set x coordinates of each rect respectively
 
-        for(int i = 0; i < mainController.numOfRecs; i++)
+        for(int i = 0; i < sortController.numOfRecs; i++)
         {
-            int h = rand.nextInt(mainController.hBoxHeight-20) + 20;  //Generate random height
-            temp = new RectHelp(mainController.widthOfRecs, h);
+            int h = rand.nextInt(sortController.hBoxHeight-20) + 20;  //Generate random height
+            temp = new RectHelp(sortController.widthOfRecs, h);
             if(i != 0)
-                xVal += mainController.widthOfRecs + 5;
+                xVal += sortController.widthOfRecs + 5;
             temp.setX( xVal );
-            temp.setWidth(mainController.widthOfRecs);
+            temp.setWidth(sortController.widthOfRecs);
             temp.setHeight(h);
-            temp.setFill(Color.LIGHTSLATEGRAY);
+            temp.setFill(Color.SLATEGRAY);
 
             tempArr.add(temp);
         }
@@ -68,7 +68,7 @@ public class Model
     {
         ParallelTransition sync = new ParallelTransition();
         int diff = rightI - leftI;  //Basically how many rectangles to move over
-        int widthAndSpace = mainController.hBoxWidth/mainController.numOfRecs; //Width and spacing of each rec
+        int widthAndSpace = sortController.hBoxWidth/ sortController.numOfRecs; //Width and spacing of each rec
 
         //Works as long as leftIndex < rightIndex
         sync.getChildren().addAll(moveByX(rects.get(leftI), (widthAndSpace * diff)), moveByX(rects.get(rightI), (-widthAndSpace * diff)) );
@@ -83,7 +83,7 @@ public class Model
     /* Moving one bar TranslateTransition method */
     public static TranslateTransition moveByX(RectHelp rect, int x)
     {
-        TranslateTransition moveThis = new TranslateTransition(Duration.millis(mainController.speed), rect);
+        TranslateTransition moveThis = new TranslateTransition(Duration.millis(sortController.speed), rect);
         moveThis.setByX(x);
         return moveThis;
     }

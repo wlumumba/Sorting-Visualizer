@@ -29,19 +29,19 @@ public class BubbleSort
             for(j = 0; j < rects.size() - i - 1; j++)
             {
                 //COLOR HAS to be set as a transition since array will already be sorted
-                this.transitionsList.add(Model.colorTwo(rects, j, j+1, Color.CORAL));
+                this.transitionsList.add(Model.colorTwo(rects, j, j+1, Color.POWDERBLUE));
                 if(rects.get(j).getH() > rects.get(j+1).getH())
                 {
                     sp = Model.swapTwo(rects, j, j+1);
                     this.transitionsList.add(sp);
                 }
-                this.transitionsList.add(Model.colorTwo(rects, j, j+1, Color.LIGHTSLATEGRAY));
+                this.transitionsList.add(Model.colorTwo(rects, j, j+1, Color.SLATEGRAY));
             }
 
             //Set last bar to green on each i iteration since its sorted
             FillTransition finalBars = new FillTransition();
             finalBars.setShape(rects.get(rects.size()-1-i));
-            finalBars.setToValue(Color.GREEN);
+            finalBars.setToValue(Color.SALMON);
             this.transitionsList.add(finalBars);
         }
 
