@@ -62,7 +62,7 @@ public class sortController implements Initializable
     public static final int hBoxHeight = 500; //Do not edit!
     public static int numOfRecs = 5; //This variable will contain the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
     public static final int spacing = 5; //This is the spacing between the rectangles
-    public static int speed = 250;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
+    public static int speed = 5000;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; // hBox width / numNodes - spacing, this is the math use to allow variance in array size
 
     //Declaring our arraylist that will contain both height and width of rectangles, see RectHelp.java for more
@@ -138,9 +138,9 @@ public class sortController implements Initializable
 
             case "Bubble Sort":
                 BubbleSort start = new BubbleSort();
-                //System.out.println(rects);
+                System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
-                //System.out.println(rects);
+                System.out.println(rects);
                 break;
         }
 

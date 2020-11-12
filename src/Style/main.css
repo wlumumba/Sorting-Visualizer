@@ -21,7 +21,6 @@
 
 .button:hover {
     -fx-background-color: #3f474f;
-    -fx-scale-y: 1.1;
 }
 
 .button:pressed {
