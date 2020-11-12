@@ -3,13 +3,14 @@ package Main;
 import Sorts.BubbleSort;
 import Sorts.MergeSort;
 import Sorts.QuickSort;
-import javafx.animation.Animation;
-import javafx.animation.SequentialTransition;
+import javafx.animation.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -18,9 +19,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,6 +62,9 @@ public class sortController implements Initializable
     @FXML
     private ChoiceBox sortChoiceBox;
 
+    @FXML
+    private AnchorPane paneLeft;
+
     /* Instance variables */
     public static final int hBoxWidth = 815; //Do not edit!
     public static final int hBoxHeight = 500; //Do not edit!
@@ -81,7 +87,7 @@ public class sortController implements Initializable
         pauseSortBtn.setDisable(true);
         stopSortBtn.setDisable(true);
         //Setting the choice box sort list
-        sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses", "Quick Sort"));
+        sortChoiceBox.setItems(FXCollections.observableArrayList("Bubble Sort", "Merge Sort", "Quick Sort"));
         //Setting default value of the choice box
         sortChoiceBox.setValue("Bubble Sort");
 
@@ -92,6 +98,7 @@ public class sortController implements Initializable
         //Randomizing the rectangles (IE: Array elements, see Model.java), then adding the elements to our hBox
         rects = Model.generateRandomRects();
         hBox.getChildren().addAll(rects);
+
 
     }//End initialize method
 
@@ -130,6 +137,22 @@ public class sortController implements Initializable
         //Calling our output function to print the arrays to textarea
         outputText.appendText("Initial Unsorted Array:\n");
         outputLog();
+
+        //Quick & simple animation that will change the color of the anchorpane upon button click, can be removed later, just a cool feature
+        final Animation animation = new Transition() {
+            {
+                setCycleDuration(Duration.millis(1200));
+                setInterpolator(Interpolator.EASE_OUT);
+            }
+            @Override
+            protected void interpolate(double frac) {
+                Color vColor = new Color(0.6784314f, 1.0f, 0.18431373f, 1 - frac);
+                Color test = Color.GREENYELLOW;
+                paneLeft.setBackground(new Background(new BackgroundFill(vColor, CornerRadii.EMPTY, Insets.EMPTY)));
+                }
+            };
+
+            animation.play();
 
         //Switch/case statements to pull user selection from choice box and call upon our sorting methods and begin animations
         switch (sortChoice)
