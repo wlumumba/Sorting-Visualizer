@@ -85,7 +85,7 @@ public class sortController implements Initializable
         startSortBtn.setDisable(true);
 
         //Setting the choice box sort list, updated to combo due to prompt ease of use
-        sortComboBox.getItems().addAll("Merge Sort", "Bubble Sort", "Quick Sort");
+        sortComboBox.getItems().addAll("Merge Sort", "Bubble Sort", "Quick Sort", "Selection Sort");
         sortComboBox.setPromptText("Select a sort:");
         //Checking if an item was selected from the sort choices, then enabling the start button (disallows null string to be passed in start button method)
         sortComboBox.valueProperty().addListener(new ChangeListener<String>()
