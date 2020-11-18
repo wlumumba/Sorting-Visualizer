@@ -4,6 +4,8 @@ import Sorts.BubbleSort;
 import Sorts.MergeSort;
 import javafx.animation.Animation;
 import javafx.animation.SequentialTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,10 +15,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -28,6 +27,9 @@ import java.util.ResourceBundle;
 
 public class sortController implements Initializable
 {
+    //Declaring our alert
+    private Alert alert;
+
     //Declaring hBox - This will contain our rectangles
     @FXML
     private HBox hBox;
@@ -56,7 +58,7 @@ public class sortController implements Initializable
 
     //Declaring choicebox to retrieve selected sort
     @FXML
-    private ChoiceBox sortChoiceBox;
+    private ComboBox sortComboBox;
 
     /* Instance variables */
     public static final int hBoxWidth = 815; //Do not edit!
@@ -79,10 +81,20 @@ public class sortController implements Initializable
         //Disabling pause button for now, will be re-enabled upon start
         pauseSortBtn.setDisable(true);
         stopSortBtn.setDisable(true);
-        //Setting the choice box sort list
-        sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
-        //Setting default value of the choice box
-        sortChoiceBox.setValue("Bubble Sort");
+        startSortBtn.setDisable(true);
+
+        //Setting the choice box sort list, updated to combo due to prompt ease of use
+        sortComboBox.getItems().addAll("Merge Sort", "Bubble Sort", "Quick Sort");
+        sortComboBox.setPromptText("Select a sort:");
+        //Checking if an item was selected from the sort choices, then enabling the start button (disallows null string to be passed in start button method)
+        sortComboBox.valueProperty().addListener(new ChangeListener<String>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue)
+            {
+                startSortBtn.setDisable(false);
+            }
+        });
 
         //Defining our hBox values, using the above declared variables (some may be dynamic)
         hBox.setSpacing(spacing);
@@ -122,8 +134,9 @@ public class sortController implements Initializable
         pauseSortBtn.setDisable(false);
         stopSortBtn.setDisable(false);
 
-        //Checking what the passed in sort was from the choice box
-        String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
+        //Checking what the passed in sort was from the comboBox
+        //String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
+        String sortChoice = (String) sortComboBox.getSelectionModel().getSelectedItem();
 
         //Calling our output function to print the arrays to text area
         outputText.appendText("Initial Unsorted Array:\n");
@@ -141,13 +154,21 @@ public class sortController implements Initializable
                 break;
 
             case "Bubble Sort":
-                outputText.appendText("Sort Time Complexity: blah blah");
+                outputText.appendText("Sort Time Complexity: O(n^2)");
                 BubbleSort start = new BubbleSort();
                 System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
                 System.out.println(rects);
                 break;
-        }
+
+            case "Quick Sort":
+                QuickSort qstart = new QuickSort();
+                sq.getChildren().addAll(qstart.startSort(rects));
+                break;
+
+
+        }//End switch statement
+
 
         //Playing our animation and running tasks on finished, then clearing SQ animation
         sq.play();
@@ -228,7 +249,7 @@ public class sortController implements Initializable
         sizeSlider.setDisable(option);
         speedSlider.setDisable(option);
         startSortBtn.setDisable(option);
-        sortChoiceBox.setDisable(option);
+        sortComboBox.setDisable(option);
 
     }//End disabler method
 
