@@ -1,5 +1,6 @@
 package Main;
 
+import Sorts.SelectionSort;
 import Sorts.BubbleSort;
 import javafx.animation.Animation;
 import javafx.animation.SequentialTransition;
@@ -79,9 +80,10 @@ public class sortController implements Initializable
         pauseSortBtn.setDisable(true);
         stopSortBtn.setDisable(true);
         //Setting the choice box sort list
-        sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Moses"));
+        sortChoiceBox.setItems(FXCollections.observableArrayList("Merge Sort", "Bubble Sort", "Selection Sort", "Moses"));
         //Setting default value of the choice box
         sortChoiceBox.setValue("Bubble Sort");
+        sortChoiceBox.setValue("Selection Sort");
 
 
         //Defining our hBox values, using the above declared variables (some may be dynamic)
@@ -140,6 +142,13 @@ public class sortController implements Initializable
                 BubbleSort start = new BubbleSort();
                 System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
+                System.out.println(rects);
+                break;
+
+            case "Selection Sort":
+                SelectionSort start2 = new SelectionSort();
+                System.out.println(rects);
+                sq.getChildren().addAll(start2.selection(rects));
                 System.out.println(rects);
                 break;
         }
