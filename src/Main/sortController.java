@@ -84,7 +84,6 @@ public class sortController implements Initializable
         //Setting default value of the choice box
         sortChoiceBox.setValue("Bubble Sort");
 
-
         //Defining our hBox values, using the above declared variables (some may be dynamic)
         hBox.setSpacing(spacing);
         hBox.setAlignment(Pos.TOP_CENTER);
@@ -138,13 +137,15 @@ public class sortController implements Initializable
                 //System.out.println(rects);
                 sq.getChildren().addAll(start0.split(rects));
                 //System.out.println(rects);
+                outputText.appendText("Sort Time Complexity: blah blah");
                 break;
 
             case "Bubble Sort":
+                outputText.appendText("Sort Time Complexity: blah blah");
                 BubbleSort start = new BubbleSort();
-                //System.out.println(rects);
+                System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
-                //System.out.println(rects);
+                System.out.println(rects);
                 break;
         }
 
