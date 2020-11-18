@@ -1,7 +1,8 @@
 package Main;
 
+import Sorts.SelectionSort;
 import Sorts.BubbleSort;
-import Sorts.MergeSort;
+import Sorts.QuickSort;
 import javafx.animation.Animation;
 import javafx.animation.SequentialTransition;
 import javafx.beans.value.ChangeListener;
@@ -146,11 +147,8 @@ public class sortController implements Initializable
         switch (sortChoice)
         {
             case "Merge Sort":
-                MergeSort start0 = new MergeSort();
-                //System.out.println(rects);
-                sq.getChildren().addAll(start0.split(rects));
-                //System.out.println(rects);
-                outputText.appendText("Sort Time Complexity: blah blah");
+                System.out.print("This is a test of merge");
+                outputText.appendText("Sort Time Complexity: MISSING!");
                 break;
 
             case "Bubble Sort":
@@ -161,11 +159,17 @@ public class sortController implements Initializable
                 System.out.println(rects);
                 break;
 
+            case "Selection Sort":
+                SelectionSort start2 = new SelectionSort();
+                System.out.println(rects);
+                sq.getChildren().addAll(start2.selection(rects));
+                System.out.println(rects);
+                break;
+
             case "Quick Sort":
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
                 break;
-
 
         }//End switch statement
 
