@@ -31,7 +31,6 @@ public class RectHelp extends Rectangle
     public String toString() {
         return "RectHelp{" +
                 "height=" + height +
-                ", width=" + width +
                 '}';
     }
 

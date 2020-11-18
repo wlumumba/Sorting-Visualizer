@@ -1,6 +1,7 @@
 package Main;
 
 import Sorts.BubbleSort;
+import Sorts.MergeSort;
 import javafx.animation.Animation;
 import javafx.animation.SequentialTransition;
 import javafx.collections.FXCollections;
@@ -62,7 +63,7 @@ public class sortController implements Initializable
     public static final int hBoxHeight = 500; //Do not edit!
     public static int numOfRecs = 5; //This variable will contain the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
     public static final int spacing = 5; //This is the spacing between the rectangles
-    public static int speed = 5000;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
+    public static int speed = 50;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; // hBox width / numNodes - spacing, this is the math use to allow variance in array size
 
     //Declaring our arraylist that will contain both height and width of rectangles, see RectHelp.java for more
@@ -125,22 +126,25 @@ public class sortController implements Initializable
         //Checking what the passed in sort was from the choice box
         String sortChoice = (String) sortChoiceBox.getSelectionModel().getSelectedItem();
 
-        //Calling our output function to print the arrays to textarea
+        //Calling our output function to print the arrays to text area
         outputText.appendText("Initial Unsorted Array:\n");
         outputLog();
 
-        //Switch/case statements to pull user selection from choice box and call upon our sorting methods and begin animations
+        //Switch/case statements to pull user selection from choice box and call upon our sorting methods and begin animation
         switch (sortChoice)
         {
             case "Merge Sort":
-                System.out.print("This is a test of merge");
+                MergeSort start0 = new MergeSort();
+                //System.out.println(rects);
+                sq.getChildren().addAll(start0.split(rects));
+                //System.out.println(rects);
                 break;
 
             case "Bubble Sort":
                 BubbleSort start = new BubbleSort();
-                System.out.println(rects);
+                //System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
-                System.out.println(rects);
+                //System.out.println(rects);
                 break;
         }
 
