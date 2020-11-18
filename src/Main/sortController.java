@@ -1,5 +1,6 @@
 package Main;
 
+import Sorts.MergeSort;
 import Sorts.SelectionSort;
 import Sorts.BubbleSort;
 import Sorts.QuickSort;
@@ -147,7 +148,8 @@ public class sortController implements Initializable
         switch (sortChoice)
         {
             case "Merge Sort":
-                System.out.print("This is a test of merge");
+                MergeSort mSort = new MergeSort();
+                sq.getChildren().addAll(mSort.split(rects));
                 outputText.appendText("Sort Time Complexity: MISSING!");
                 break;
 

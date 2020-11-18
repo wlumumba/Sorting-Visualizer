@@ -11,28 +11,34 @@ public class MergeSort
         ArrayList<Transition> transitionsList = new ArrayList<Transition>();
 
         int sizeL = left.size();
-        int sizeR = left.size();
+        int sizeR = right.size();
 
         int k = 0; //index holder for passed arr
         int i = 0; //indexies for l and r arrays
         int j = 0;
+        System.out.println("Initial rects: " + rects);
 
+        //Replace index k in original with smallest between left/right (printing recs looks like its duplicating elements but in reality its not)
         while(i < sizeL && j < sizeR)
         {
             if(left.get(i).getH() <= right.get(j).getH())
             {
                 rects.set(k, left.get(i));
+                System.out.println("Left went in: " + rects + "i: " + i);
                 i = i + 1;
+
             }
             else
             {
                 rects.set(k, right.get(j));
+                System.out.println("Right went in: " + rects + "i: " + i);
                 j = j + 1;
             }
             k = k + 1;
         }
         System.out.println("Finished regular: " + rects);
 
+        //Whatever is leftover in left is added in
         while (i < sizeL)
         {
             rects.set(k, left.get(i));
@@ -41,6 +47,7 @@ public class MergeSort
             i = i + 1;
         }
 
+        //Whatever is leftover in right is added in
         while (j < sizeR)
         {
             rects.set(k, right.get(j));
