@@ -165,13 +165,11 @@ public class sortController implements Initializable
                 sq.getChildren().addAll(start2.selection(rects));
                 System.out.println(rects);
                 break;
-        }
 
             case "Quick Sort":
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
                 break;
-
 
         }//End switch statement
 
