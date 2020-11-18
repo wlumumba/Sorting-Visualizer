@@ -160,6 +160,7 @@ public class sortController implements Initializable
                 break;
 
             case "Selection Sort":
+                outputText.appendText("Sort Time Complexity: MISSING!");
                 SelectionSort start2 = new SelectionSort();
                 System.out.println(rects);
                 sq.getChildren().addAll(start2.selection(rects));
@@ -167,6 +168,7 @@ public class sortController implements Initializable
                 break;
 
             case "Quick Sort":
+                outputText.appendText("Sort Time Complexity: MISSING!");
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
                 break;

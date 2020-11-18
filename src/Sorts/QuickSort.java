@@ -23,7 +23,9 @@ public class QuickSort {
     public int partition(ArrayList<RectHelp> rect, int low, int high){
         int i = low;
         ParallelTransition sp;
+
         this.transitionsList.add(Model.colorTwo(rect,i,high , Color.POWDERBLUE ));
+        this.transitionsList.add(Model.colorTwo(rect,i,high , Color.KHAKI));
         for(int j = low; j < high; j++){
             RectHelp lowval = rect.get(j);
             RectHelp highval = rect.get(high);
