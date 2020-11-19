@@ -97,6 +97,9 @@ public class sortController implements Initializable
             }
         });
 
+        Tooltip outputField = new Tooltip("Array elements (Unsorted and Sorted) will show here, alongside the sort time complexity!");
+        outputText.setTooltip(outputField);
+
         //Defining our hBox values, using the above declared variables (some may be dynamic)
         hBox.setSpacing(spacing);
         hBox.setAlignment(Pos.TOP_CENTER);
@@ -147,12 +150,11 @@ public class sortController implements Initializable
         switch (sortChoice)
         {
             case "Merge Sort":
-                System.out.print("This is a test of merge");
-                outputText.appendText("Sort Time Complexity: MISSING!");
+                outputText.appendText("Sort Time Complexity: MISSING!\n");
                 break;
 
             case "Bubble Sort":
-                outputText.appendText("Sort Time Complexity: O(n^2)");
+                outputText.appendText("Sort Time Complexity: O(n^2)\n");
                 BubbleSort start = new BubbleSort();
                 System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
@@ -160,7 +162,7 @@ public class sortController implements Initializable
                 break;
 
             case "Selection Sort":
-                outputText.appendText("Sort Time Complexity: MISSING!");
+                outputText.appendText("Sort Time Complexity: MISSING!\n");
                 SelectionSort start2 = new SelectionSort();
                 System.out.println(rects);
                 sq.getChildren().addAll(start2.selection(rects));
@@ -168,7 +170,7 @@ public class sortController implements Initializable
                 break;
 
             case "Quick Sort":
-                outputText.appendText("Sort Time Complexity: MISSING!");
+                outputText.appendText("Sort Time Complexity: MISSING!\n");
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
                 break;
@@ -183,8 +185,9 @@ public class sortController implements Initializable
             disabler(false);
             pauseSortBtn.setDisable(true);
             stopSortBtn.setDisable(true);
-            outputText.appendText("Sorted Array:\n");
+            outputText.appendText("\nSorted Array:\n");
             outputLog();
+
         });
 
         sq.getChildren().clear();

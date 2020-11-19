@@ -3,17 +3,24 @@ package Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class mainController {
+
+    @FXML
+    private Button exitBtn;
 
     public void openSorts(ActionEvent event) throws IOException {
 
@@ -45,7 +52,7 @@ public class mainController {
     {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.close();
-    }
 
+    }
 
 }
