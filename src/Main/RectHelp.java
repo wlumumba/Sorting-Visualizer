@@ -30,7 +30,7 @@ public class RectHelp extends Rectangle
     @Override
     public String toString() {
         return "RectHelp{" +
-                "height=" + height +
+                "height=" + height + ",: x=" + getX() +
                 '}';
     }
 

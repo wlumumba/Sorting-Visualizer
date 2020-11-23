@@ -80,6 +80,20 @@ public class Model
 
     }
 
+    /* Transition of swapping two bars */
+    public static ParallelTransition swapTwo2(ArrayList<RectHelp> rects, int leftI, int rightI)
+    {
+        ParallelTransition sync = new ParallelTransition();
+        int diff = rightI - leftI;  //Basically how many rectangles to move over
+        int widthAndSpace = sortController.hBoxWidth/ sortController.numOfRecs; //Width and spacing of each rec
+
+        //Works as long as leftIndex < rightIndex
+        sync.getChildren().addAll(moveByX(rects.get(leftI), (widthAndSpace * diff)), moveByX(rects.get(rightI), (-widthAndSpace * diff)) );
+
+        return sync;
+
+    }
+
     /* Moving one bar TranslateTransition method */
     public static TranslateTransition moveByX(RectHelp rect, int x)
     {

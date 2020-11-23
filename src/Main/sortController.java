@@ -156,9 +156,9 @@ public class sortController implements Initializable
             case "Bubble Sort":
                 outputText.appendText("Sort Time Complexity: O(n^2)");
                 BubbleSort start = new BubbleSort();
-                System.out.println(rects);
+                //System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
-                System.out.println(rects);
+                //System.out.println(rects);
                 break;
 
             case "Selection Sort":
