@@ -80,6 +80,21 @@ public class Model
 
     }
 
+    //Color fill for quicksort attempt
+    public static ParallelTransition pivotColor(ArrayList<RectHelp> rects, Color color, int...a) {
+        ParallelTransition pt = new ParallelTransition();
+
+        for (int i = 0; i < a.length; i++) {
+            FillTransition ft = new FillTransition();
+            ft.setShape(rects.get(a[i]));
+            ft.setToValue(color);
+            ft.setDuration(Duration.millis(100));
+            pt.getChildren().add(ft);
+        }
+
+        return pt;
+    }
+
     /* Transition of swapping two bars */
     public static ParallelTransition swapTwo2(ArrayList<RectHelp> rects, int leftI, int rightI)
     {

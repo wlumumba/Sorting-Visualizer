@@ -8,6 +8,8 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
+import static Main.Model.pivotColor;
+
 public class QuickSort {
     public  ArrayList<Transition> transitionsList;
 
@@ -23,8 +25,11 @@ public class QuickSort {
     public int partition(ArrayList<RectHelp> rect, int low, int high){
         int i = low;
         ParallelTransition sp;
+
         this.transitionsList.add(Model.colorTwo(rect,i,high , Color.POWDERBLUE ));
+        //this.transitionsList.add(pivotColor(rect, Color.POWDERBLUE, high));
         for(int j = low; j < high; j++){
+            this.transitionsList.add(pivotColor(rect, Color.GREEN, j));
             RectHelp lowval = rect.get(j);
             RectHelp highval = rect.get(high);
             int highV = highval.getH();
@@ -32,10 +37,16 @@ public class QuickSort {
             if( lowV < highV){
                 sp = Model.swapTwo(rect, i, j);
                 transitionsList.add(sp);
+                this.transitionsList.add(pivotColor(rect, Color.SALMON, i));
                 i++;
+            }
+            else
+            {
+                transitionsList.add(pivotColor(rect, Color.SALMON, j));
             }
         }
         transitionsList.add(Model.swapTwo(rect, i, high));
+        this.transitionsList.add(pivotColor(rect, Color.SALMON, i));
         return i;
     }
 

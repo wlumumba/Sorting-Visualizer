@@ -10,12 +10,12 @@
       <Button layoutX="150.0" layoutY="490.0" maxWidth="130.0" minHeight="-Infinity" minWidth="130" mnemonicParsing="false" onAction="#openInformation" prefHeight="27.0" prefWidth="121.0" text="Information" />
       <Button layoutX="750.0" layoutY="490.0" maxWidth="130.0" minHeight="-Infinity" minWidth="130" mnemonicParsing="false" onAction="#exitProgram" text="Exit Program" />
       <Button layoutX="450.0" layoutY="490.0" maxWidth="130.0" minHeight="-Infinity" minWidth="130" mnemonicParsing="false" onAction="#openSorts" prefHeight="27.0" prefWidth="100.0" text="View Sorts" />
-      <Label layoutX="296.0" layoutY="38.0" text="Algorithm Sorting Visualizer">
+      <Label layoutX="190.0" layoutY="101.0" text="Algorithm Sorting Visualizer">
          <font>
-            <Font name="Lao MN" size="30.0" />
+            <Font name="AppleMyungjo Regular" size="50.0" />
          </font>
       </Label>
-      <Label layoutX="450.0" layoutY="84.0" text="Created by Group 13 for Heena Rathore">
+      <Label layoutX="473.0" layoutY="169.0" text="Created by Group 13 for Heena Rathore">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
