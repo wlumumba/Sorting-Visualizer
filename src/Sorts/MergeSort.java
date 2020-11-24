@@ -125,4 +125,14 @@ public class MergeSort
 
         return transitionsList;
     }
+
+
+    public ArrayList<Transition> start(ArrayList<RectHelp> rects)
+    {
+        ArrayList<Transition> transitionsList = new ArrayList<Transition>();
+
+        transitionsList.addAll(split(rects));
+
+        return transitionsList;
+    }
 }
