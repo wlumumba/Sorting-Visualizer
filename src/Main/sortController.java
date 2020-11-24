@@ -62,7 +62,7 @@ public class sortController implements Initializable
     /* Instance variables */
     public static final int hBoxWidth = 815; //Do not edit!
     public static final int hBoxHeight = 500; //Do not edit!
-    public static int numOfRecs = 5; //This variable will contain the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
+    public static int numOfRecs = 10; //This variable will contain the size of the array, adjusted by sizeSlider input, set to 5 for initial screen
     public static final int spacing = 5; //This is the spacing between the rectangles
     public static int speed = 50;  //Sets the speed of swaps in millis, this is adjusted by speedSlider input
     public static int widthOfRecs = hBoxWidth / numOfRecs - spacing; // hBox width / numNodes - spacing, this is the math use to allow variance in array size
@@ -154,7 +154,7 @@ public class sortController implements Initializable
                 break;
 
             case "Bubble Sort":
-                outputText.appendText("Sort Time Complexity: O(n^2)\n");
+                outputText.appendText("Sort Time Complexity: \nBest & Worst: O(n^2) \n ");
                 BubbleSort start = new BubbleSort();
                 //System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
@@ -162,7 +162,7 @@ public class sortController implements Initializable
                 break;
 
             case "Selection Sort":
-                outputText.appendText("Sort Time Complexity: MISSING!\n");
+                outputText.appendText("Sort Time Complexity: \nWorst: O(n^2)\nBest: O(n) \n");
                 SelectionSort start2 = new SelectionSort();
                 System.out.println(rects);
                 sq.getChildren().addAll(start2.selection(rects));
@@ -170,7 +170,7 @@ public class sortController implements Initializable
                 break;
 
             case "Quick Sort":
-                outputText.appendText("Sort Time Complexity: MISSING!\n");
+                outputText.appendText("Sort Time Complexity: \n(Worst: O(n^2) ) \n(Best: O(n log n) )\n");
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
                 break;

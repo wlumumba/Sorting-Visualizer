@@ -80,15 +80,20 @@ public class Model
 
     }
 
-    //Color fill for quicksort attempt
-    public static ParallelTransition pivotColor(ArrayList<RectHelp> rects, Color color, int...a) {
+    //Color fill for quicksort pivot
+    public static ParallelTransition pivotColor(ArrayList<RectHelp> rects, Color color, int ...val)
+    {
+        //Declaring new parallel
         ParallelTransition pt = new ParallelTransition();
 
-        for (int i = 0; i < a.length; i++) {
+        //For loop that will iterate through inputted value (high/low from qs)
+        for (int i = 0; i < val.length; i++)
+        {
             FillTransition ft = new FillTransition();
-            ft.setShape(rects.get(a[i]));
+            ft.setShape(rects.get(val[i]));
             ft.setToValue(color);
-            ft.setDuration(Duration.millis(100));
+            //Displaying longer duration due to allowing user to understand where the pivot is
+            ft.setDuration(Duration.millis(600));
             pt.getChildren().add(ft);
         }
 

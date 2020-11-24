@@ -6,7 +6,7 @@ Team Members:
 - Wycliff Lumumba (zoz066)
 - Khalid Farhoud (vxg648)
 - Isabel Madrigal ()
-- Alan Weikman ()
+- Alan Weikman (vrn320)
 
 Description:
 

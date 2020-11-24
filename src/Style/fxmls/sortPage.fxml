@@ -34,7 +34,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Slider fx:id="sizeSlider" blockIncrement="5.0" layoutX="430.0" layoutY="552.0" majorTickUnit="10.0" max="50" min="10" minorTickCount="0" onMouseReleased="#sliderSelection" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider fx:id="sizeSlider" blockIncrement="5.0" layoutX="430.0" layoutY="552.0" majorTickUnit="10.0" max="50" min="10" minorTickCount="0" onMousePressed="#sliderSelection" showTickLabels="true" showTickMarks="true" snapToPixel="false" snapToTicks="true" />
       <Slider fx:id="speedSlider" blockIncrement="250" layoutX="776.0" layoutY="552.0" majorTickUnit="250" max="1000" min="250" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <Label layoutX="34.0" layoutY="551.0" text="Algorithm:" />
       <Label layoutX="339.0" layoutY="551.0" text="Array Size:" />
