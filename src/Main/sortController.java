@@ -170,12 +170,13 @@ public class sortController implements Initializable
                 break;
 
             case "Quick Sort":
-                outputText.appendText("Sort Time Complexity: \n(Worst: O(n^2) ) \n(Best: O(n log n) )\n");
+                outputText.appendText("Sort Time Complexity: \n(Worst: O(n^2) ) \n(Best: O(n logn) )\n");
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
                 break;
 
             case "Heap Sort":
+                outputText.appendText("Sort Time Complexity: \nBest & Worst: O(n logn)\n");
                 HeapSort hstart = new HeapSort();
                 sq.getChildren().addAll(hstart.startSort(rects));
                 break;

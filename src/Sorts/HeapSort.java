@@ -20,10 +20,6 @@ public class HeapSort
 
     public void heapify(ArrayList<RectHelp> rects, int i, int n)
     {
-        int left = 2 * i + 1; //index of parent (i) left
-        int right = 2 * i + 1; //index of parent (i) right
-        int parent = i;
-
         int largest = i; // Initialize largest as root
         int l = 2 * i + 1; // left = 2*i + 1
         int r = 2 * i + 2; // right = 2*i + 2
@@ -36,7 +32,7 @@ public class HeapSort
         if (r < n && rects.get(r).getH() > rects.get(largest).getH())
             largest = r;
 
-        // If largest is not root
+        // If largest is not root, swap largest with the root
         if (largest != i)
         {
             this.transitionsList.add(Model.colorTwo(rects, i, largest, Color.POWDERBLUE));
