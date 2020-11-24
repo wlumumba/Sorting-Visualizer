@@ -157,7 +157,7 @@ public class sortController implements Initializable
                 break;
 
             case "Bubble Sort":
-                outputText.appendText("Sort Time Complexity: O(n^2)\n");
+                outputText.appendText("Sort Time Complexity: \nBest & Worst: O(n^2) \n ");
                 BubbleSort start = new BubbleSort();
                 //System.out.println(rects);
                 sq.getChildren().addAll(start.bubble(rects));
@@ -165,7 +165,7 @@ public class sortController implements Initializable
                 break;
 
             case "Selection Sort":
-                outputText.appendText("Sort Time Complexity: MISSING!\n");
+                outputText.appendText("Sort Time Complexity: \nWorst: O(n^2)\nBest: O(n) \n");
                 SelectionSort start2 = new SelectionSort();
                 System.out.println(rects);
                 sq.getChildren().addAll(start2.selection(rects));
@@ -173,7 +173,7 @@ public class sortController implements Initializable
                 break;
 
             case "Quick Sort":
-                outputText.appendText("Sort Time Complexity: MISSING!\n");
+                outputText.appendText("Sort Time Complexity: \n(Worst: O(n^2) ) \n(Best: O(n log n) )\n");
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
                 break;
