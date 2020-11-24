@@ -17,7 +17,7 @@
           <AnchorPane maxHeight="479.0" maxWidth="174.0" minHeight="479.0" minWidth="174.0" prefHeight="479.0" prefWidth="174.0">
                <children>
                   <Button fx:id="startSortBtn" layoutX="37.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="100" minHeight="-Infinity" minWidth="100" mnemonicParsing="false" onAction="#startButton" text="Start Sort" />
-                  <Button fx:id="returnHomeBtn" layoutX="42.0" layoutY="431.0" mnemonicParsing="false" onAction="#returnMain" text="Return Home" />
+                  <Button fx:id="returnHomeBtn" layoutX="37.0" layoutY="452.0" mnemonicParsing="false" onAction="#returnMain" text="Return Home" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="132.0" text="Output:" />
                   <Button fx:id="pauseSortBtn" layoutX="37.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="100" minHeight="-Infinity" minWidth="100" mnemonicParsing="false" onAction="#pauseButton" text="Pause Sort" />
                   <Button fx:id="stopSortBtn" layoutX="37.0" layoutY="94.0" maxHeight="-Infinity" maxWidth="100" minHeight="-Infinity" minWidth="100" mnemonicParsing="false" onAction="#stopButton" text="Stop Sort" />
@@ -25,6 +25,7 @@
                      <font>
                         <Font name="Times New Roman" size="10.0" />
                      </font></TextArea>
+                  <Button fx:id="hoverBtn" layoutX="17.0" layoutY="413.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Hover me!" underline="true" />
                </children>
             </AnchorPane>
           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="826.0">

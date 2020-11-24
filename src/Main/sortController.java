@@ -15,10 +15,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,9 +28,6 @@ import java.util.ResourceBundle;
 
 public class sortController implements Initializable
 {
-    //Declaring our alert
-    private Alert alert;
-
     //Declaring hBox - This will contain our rectangles
     @FXML
     private HBox hBox;
@@ -59,6 +58,9 @@ public class sortController implements Initializable
     @FXML
     private ComboBox sortComboBox;
 
+    @FXML
+    private Button hoverBtn;
+
     /* Instance variables */
     public static final int hBoxWidth = 815; //Do not edit!
     public static final int hBoxHeight = 500; //Do not edit!
@@ -82,17 +84,46 @@ public class sortController implements Initializable
         stopSortBtn.setDisable(true);
         startSortBtn.setDisable(true);
 
+        Tooltip quickSort = new Tooltip("Quick Sort Info\nColors are as follows:\nPivot: Green\nSorted: Red\nIterator: Lavender");
+        Tooltip bubbleSort = new Tooltip("Bubble Sort Info\nColors are as follows:\nComparisons: Blue\nSorted: Red");
+        Tooltip heapSort = new Tooltip("Heap Sort info");
+        Tooltip mergeSort = new Tooltip("Merge Sort info");
+        Tooltip selectionSort = new Tooltip("Selection Sort info");
+
         //Setting the choice box sort list, updated to combo due to prompt ease of use
         sortComboBox.getItems().addAll("Merge Sort", "Bubble Sort", "Quick Sort", "Selection Sort", "Heap Sort");
         sortComboBox.setPromptText("Select a sort:");
         //Checking if an item was selected from the sort choices, then enabling the start button (disallows null string to be passed in start button method)
+        //Added button to hold tooltips on choice changed
         sortComboBox.valueProperty().addListener(new ChangeListener<String>()
         {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue)
             {
                 startSortBtn.setDisable(false);
+
+                if (newValue == "Quick Sort")
+                {
+                    hoverBtn.setTooltip(quickSort);
+                }
+                else if (newValue == "Bubble Sort")
+                {
+                    hoverBtn.setTooltip(bubbleSort);
+                }
+                else if (newValue == "Merge Sort")
+                {
+                    hoverBtn.setTooltip(mergeSort);
+                }
+                else if (newValue == "Selection Sort")
+                {
+                    hoverBtn.setTooltip(selectionSort);
+                }
+                else if (newValue == "Heap Sort")
+                {
+                    hoverBtn.setTooltip(heapSort);
+                }
             }
+
         });
 
         Tooltip outputField = new Tooltip("Array elements (Unsorted and Sorted) will show here, alongside the sort time complexity!");
@@ -131,6 +162,7 @@ public class sortController implements Initializable
     //Method that will start the sorting and call other methods/sorts,etc...
     public void startButton (ActionEvent event)
     {
+
         //Calling disabler method to disallow user manipulation during sorting, and enabling our pause button as previously disabled
         disabler(true);
         pauseSortBtn.setDisable(false);
@@ -143,6 +175,8 @@ public class sortController implements Initializable
         //Calling our output function to print the arrays to text area
         outputText.appendText("Initial Unsorted Array:\n");
         outputLog();
+
+
 
         //Switch/case statements to pull user selection from choice box and call upon our sorting methods and begin animation
         switch (sortChoice)
