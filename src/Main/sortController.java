@@ -1,9 +1,6 @@
 package Main;
 
-import Sorts.MergeSort;
-import Sorts.SelectionSort;
-import Sorts.BubbleSort;
-import Sorts.QuickSort;
+import Sorts.*;
 import javafx.animation.Animation;
 import javafx.animation.SequentialTransition;
 import javafx.beans.value.ChangeListener;
@@ -94,7 +91,7 @@ public class sortController implements Initializable
         Tooltip selectionSort = new Tooltip("Selection Sort info");
 
         //Setting the choice box sort list, updated to combo due to prompt ease of use
-        sortComboBox.getItems().addAll("Merge Sort", "Bubble Sort", "Quick Sort", "Selection Sort");
+        sortComboBox.getItems().addAll("Merge Sort", "Bubble Sort", "Quick Sort", "Selection Sort", "Heap Sort");
         sortComboBox.setPromptText("Select a sort:");
         //Checking if an item was selected from the sort choices, then enabling the start button (disallows null string to be passed in start button method)
         //Added button to hold tooltips on choice changed
@@ -186,7 +183,7 @@ public class sortController implements Initializable
         {
             case "Merge Sort":
                 MergeSort mSort = new MergeSort();
-                sq.getChildren().addAll(mSort.split(rects));
+                sq.getChildren().addAll(mSort.start(rects));
                 outputText.appendText("Sort Time Complexity: MISSING!");
                 break;
 
@@ -210,6 +207,11 @@ public class sortController implements Initializable
                 outputText.appendText("Sort Time Complexity: \n(Worst: O(n^2) ) \n(Best: O(n log n) )\n");
                 QuickSort qstart = new QuickSort();
                 sq.getChildren().addAll(qstart.startSort(rects));
+                break;
+
+            case "Heap Sort":
+                HeapSort hstart = new HeapSort();
+                sq.getChildren().addAll(hstart.startSort(rects));
                 break;
 
         }//End switch statement
