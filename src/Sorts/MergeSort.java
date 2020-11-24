@@ -77,7 +77,7 @@ public class MergeSort
                 {
                     if(rects.get(x).getH() == copy.get(y).getH())
                     {
-                        pt.getChildren().add(Model.swapTwo2(copy, x, y)); //Turns out x values dont actually change on completion. They revert back to initial values and LITERAL swapping is what determines if we visually move them. Shit
+                        //pt.getChildren().add(Model.swapTwo2(copy, x, y)); //Turns out x values dont actually change on completion. They revert back to initial values and LITERAL swapping is what determines if we visually move them. Shit
                         break;
                     }
                 }
