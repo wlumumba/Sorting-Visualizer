@@ -192,9 +192,9 @@ public class sortController implements Initializable
             case "Selection Sort":
                 outputText.appendText("Sort Time Complexity: \nWorst: O(n^2)\nBest: O(n) \n");
                 SelectionSort start2 = new SelectionSort();
-                System.out.println(rects);
+                //System.out.println(rects);
                 sq.getChildren().addAll(start2.selection(rects));
-                System.out.println(rects);
+                //System.out.println(rects);
                 break;
 
             case "Quick Sort":
