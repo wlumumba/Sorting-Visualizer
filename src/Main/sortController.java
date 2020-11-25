@@ -87,11 +87,10 @@ public class sortController implements Initializable
         Tooltip quickSort = new Tooltip("Quick Sort Info\nColors are as follows:\nPivot: Green\nSorted: Red\nIterator: Lavender");
         Tooltip bubbleSort = new Tooltip("Bubble Sort Info\nColors are as follows:\nComparisons: Blue\nSorted: Red");
         Tooltip heapSort = new Tooltip("Heap Sort info\nColors are as follows:\nComparisons: Blue\nSorted: Red");
-        Tooltip mergeSort = new Tooltip("Merge Sort info");
         Tooltip selectionSort = new Tooltip("Selection Sort info");
 
         //Setting the choice box sort list, updated to combo due to prompt ease of use
-        sortComboBox.getItems().addAll("Merge Sort", "Bubble Sort", "Quick Sort", "Selection Sort", "Heap Sort");
+        sortComboBox.getItems().addAll("Bubble Sort", "Quick Sort", "Selection Sort", "Heap Sort");
         sortComboBox.setPromptText("Select a sort:");
         //Checking if an item was selected from the sort choices, then enabling the start button (disallows null string to be passed in start button method)
         //Added button to hold tooltips on choice changed
@@ -109,10 +108,6 @@ public class sortController implements Initializable
                 else if (newValue == "Bubble Sort")
                 {
                     hoverBtn.setTooltip(bubbleSort);
-                }
-                else if (newValue == "Merge Sort")
-                {
-                    hoverBtn.setTooltip(mergeSort);
                 }
                 else if (newValue == "Selection Sort")
                 {
@@ -176,16 +171,15 @@ public class sortController implements Initializable
         outputText.appendText("Initial Unsorted Array:\n");
         outputLog();
 
-
-
         //Switch/case statements to pull user selection from choice box and call upon our sorting methods and begin animation
         switch (sortChoice)
         {
-            case "Merge Sort":
+            //Merge sort animations were not working, sorting works, however animation does not.
+            /*case "Merge Sort":
                 MergeSort mSort = new MergeSort();
                 sq.getChildren().addAll(mSort.start(rects));
                 outputText.appendText("Sort Time Complexity: MISSING!");
-                break;
+                break;*/
 
             case "Bubble Sort":
                 outputText.appendText("Sort Time Complexity: \nBest & Worst: O(n^2) \n ");
@@ -314,7 +308,6 @@ public class sortController implements Initializable
         currentStage.show();
 
     }//End openUser
-
 
 }//End mainController class
 
