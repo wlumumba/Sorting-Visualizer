@@ -1,8 +1,0 @@
-Ignore this file, used to break down project ideas and add notes
-
-- Using array list of transitions, then setting them into a sequences which correlates as an "array", IE: bar 1 -> bar 2 as a transition
-
-
-Oracle:
-This Node is used in all child Transitions, that do not define a target Node themselves.
-ObjectProperty<Node>
