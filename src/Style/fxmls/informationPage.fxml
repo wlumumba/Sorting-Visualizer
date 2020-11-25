@@ -14,20 +14,23 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <Text layoutX="33.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This project was created blah blah (Please see attached video on github page on how to run the program" wrappingWidth="352.22900390625">
+      <Text fill="WHITE" layoutX="55.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This project was made as a tool for visualizing sorting algorithms. This app allows users to select between different sorting algorithms and view the sort in real time through animation. The user has the option to change the size of the sorted array and the speed of the sort to suit his or her needs. With a clean and easy to navigate GUI the user can learn about these sorting algorithms with ease." wrappingWidth="910.22900390625">
          <font>
-            <Font size="15.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="59.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" wrappingWidth="24.22900390625" />
-      <Text layoutX="482.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" wrappingWidth="35.22900390625" />
-      <Text layoutX="246.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" wrappingWidth="24.22900390625" />
-      <Text layoutX="651.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" wrappingWidth="24.22900390625" />
-      <Text layoutX="862.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" wrappingWidth="24.22900390625" />
-      <Label alignment="CENTER" layoutX="366.0" layoutY="228.0" text="Algorithim Descriptions" textAlignment="CENTER" textFill="SALMON" underline="true">
+      <Text fill="WHITE" layoutX="55.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bubble sort is a simple algorithm that works by repeatedly swapping the adjacent elements ifthey are in the correct order." wrappingWidth="295.22900390625" />
+      <Text fill="#e8d655" layoutX="55.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quick Sort" underline="true" wrappingWidth="117.22900390625" />
+      <Text fill="#e8d655" layoutX="55.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bubble Sort" underline="true" wrappingWidth="90.00000357627869" />
+      <Text fill="WHITE" layoutX="500.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heap sort is a comparison based sorting technique based on Binary Heap data structure. It issimilar to selection sort where we first find the maximum element and place the maximumelement at the end. We repeat the same process for the remaining elements." wrappingWidth="379.22900390625" />
+      <Label alignment="CENTER" layoutX="359.0" layoutY="185.0" text="Algorithm Descriptions" textAlignment="CENTER" textFill="SALMON" underline="true">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
+      <Text fill="#f8f8f8" layoutX="48.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quicksort is a divide and conquer algorithm, it picks an element as the pivot and subsequentlypartitions the given array around said pivot. (NOTE: there are many different ways to choose thepivot) The key process in quicksort is the partition, given an array and a pivot x, by the end ofthe sort all values less than x should be on the left with values greater than x on the right." wrappingWidth="295.22900390625" />
+      <Text fill="#e8d655" layoutX="500.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heap Sort" underline="true" wrappingWidth="90.00000357627869" />
+      <Text fill="WHITE" layoutX="500.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heap sort is a comparison based sorting technique based on Binary Heap data structure. It issimilar to selection sort where we first find the maximum element and place the maximumelement at the end. We repeat the same process for the remaining elements." wrappingWidth="379.22900390625" />
+      <Text fill="#e8d655" layoutX="500.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selection Sort" underline="true" wrappingWidth="140.2290060520172" />
    </children>
 </AnchorPane>
