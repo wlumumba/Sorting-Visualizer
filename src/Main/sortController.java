@@ -87,7 +87,7 @@ public class sortController implements Initializable
         Tooltip quickSort = new Tooltip("Quick Sort Info\nColors are as follows:\nPivot: Green\nSorted: Red\nIterator: Lavender");
         Tooltip bubbleSort = new Tooltip("Bubble Sort Info\nColors are as follows:\nComparisons: Blue\nSorted: Red");
         Tooltip heapSort = new Tooltip("Heap Sort info\nColors are as follows:\nComparisons: Blue\nSorted: Red");
-        Tooltip selectionSort = new Tooltip("Selection Sort info");
+        Tooltip selectionSort = new Tooltip("Selection Sort info\nColors are as follows:\nMinimum Index: Blinking Blue\nComparisons: Blue\nSorted: Red");
 
         //Setting the choice box sort list, updated to combo due to prompt ease of use
         sortComboBox.getItems().addAll("Bubble Sort", "Quick Sort", "Selection Sort", "Heap Sort");
