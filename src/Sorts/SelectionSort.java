@@ -24,53 +24,53 @@ public class SelectionSort
         ParallelTransition sp;
         int minIndx;
 
-        for (int i = 0; i < rects.size() - 1; i++) {
+        for (int i = 0; i < rects.size() - 1; i++)
+        {
             minIndx = i;
             transitionsList.add(Model.colorTwo(rects, i, minIndx, Color.POWDERBLUE));
 
-            for (int j = i + 1; j < rects.size(); j++) {
+            for (int j = i + 1; j < rects.size(); j++)
+            {
                 transitionsList.add(Model.colorTwo(rects, j, j, Color.POWDERBLUE));
-                if (rects.get(j).getH() < rects.get(minIndx).getH()) {
+                if (rects.get(j).getH() < rects.get(minIndx).getH())
+                {
                     if (minIndx == i) {
                         transitionsList.add(Model.colorTwo(rects, minIndx, j, Color.POWDERBLUE));
                     } else {
                         transitionsList.add(Model.colorTwo(rects, minIndx, j, Color.SLATEGRAY));
                     }
                     minIndx = j;
-                } else {
+                }
+                else {
                     transitionsList.add(Model.colorTwo(rects, j, minIndx, Color.SLATEGRAY));
                 }
             }
 
-            if (minIndx != i) {
+            if (minIndx != i)
+            {
                 //transitionsList.add(swap(arr, i, minIndx));
                 sp = Model.swapTwo(rects, i, minIndx);
                 this.transitionsList.add(sp);
             }
 
-            transitionsList.add(Model.colorTwo(rects, i, minIndx, Color.SLATEGRAY));
+            //Set last bar to green on each i iteration since its sorted
+            FillTransition finalBars = new FillTransition();
+            finalBars.setShape(rects.get(i));
+            finalBars.setToValue(Color.SALMON);
+            this.transitionsList.add(finalBars);
+
+
+            //transitionsList.add(Model.colorTwo(rects, i, minIndx, Color.SLATEGRAY));
         }
+
+        //Set last bar to green on each i iteration since its sorted
+        FillTransition finalBars = new FillTransition();
+        finalBars.setShape(rects.get(rects.size()-1));
+        finalBars.setToValue(Color.SALMON);
+        this.transitionsList.add(finalBars);
 
         //transitionsList.add(Model.colorTwo(Arrays.asList(rects), Color.SALMON));
         return transitionsList;
     }
 }
-        /*ParallelTransition sp;
-
-        // One by one move boundary of unsorted subarray
-        for (int i = 0; i < rects.size() - 1; i++)
-        {
-            // Find the minimum element in unsorted array
-            int min_idx = i;
-            for (int j = i+1; j < rects.size(); j++)
-                if (rects.size(j) < rects.size(min_idx))
-                    min_idx = j;
-
-            // Swap the found minimum element with the first
-            // element
-            int temp = rects.size(min_idx);
-            rects.size(min_idx) = rects.size(i);
-            rects.size(i) = temp;
-        }
-    }*/
 
