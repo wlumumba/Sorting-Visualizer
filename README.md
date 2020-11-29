@@ -5,7 +5,7 @@ Team Members:
 - Moussa Dastgheib (omh118)
 - Wycliff Lumumba (zoz066)
 - Khalid Farhoud (vxg648)
-- Isabel Madrigal ()
+- Isabel Madrigal (jvb664)
 - Alan Weikman (vrn320)
 
 Description:
