@@ -20,3 +20,6 @@ Known Bugs:
 
 Version/Requirements:
 - Currently using Intellij, as of now have not tested with Eclipse port.
+
+![](SortingReadMe.gif)
+
