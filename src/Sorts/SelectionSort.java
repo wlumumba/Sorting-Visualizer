@@ -24,13 +24,17 @@ public class SelectionSort
         ParallelTransition sp;
         int minIndx;
 
+        // One by one move boundary of unsorted subarray
         for (int i = 0; i < rects.size() - 1; i++)
         {
+            // Find the minimum element in unsorted array
             minIndx = i;
             transitionsList.add(Model.colorTwo(rects, i, minIndx, Color.POWDERBLUE));
 
             for (int j = i + 1; j < rects.size(); j++)
             {
+
+                // Colors minimum index and iterates through rects
                 transitionsList.add(Model.colorTwo(rects, minIndx, j, Color.POWDERBLUE));
                 if (rects.get(j).getH() < rects.get(minIndx).getH())
                 {
@@ -49,6 +53,7 @@ public class SelectionSort
                 }
             }
 
+            // Swap the found minimum element with the first element
             if (minIndx != i)
             {
                 sp = Model.swapTwo(rects, i, minIndx);
@@ -62,16 +67,14 @@ public class SelectionSort
             this.transitionsList.add(finalBars);
 
 
-            //transitionsList.add(Model.colorTwo(rects, i, minIndx, Color.SLATEGRAY));
         }
 
-        //Set last bar to green on each i iteration since its sorted
+        //Set last bar to salmon on each i iteration since its sorted
         FillTransition finalBars = new FillTransition();
         finalBars.setShape(rects.get(rects.size()-1));
         finalBars.setToValue(Color.SALMON);
         this.transitionsList.add(finalBars);
 
-        //transitionsList.add(Model.colorTwo(Arrays.asList(rects), Color.SALMON));
         return transitionsList;
     }
 }
