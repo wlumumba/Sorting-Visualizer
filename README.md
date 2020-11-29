@@ -2,7 +2,7 @@
 
 ![](GIT.gif)
 
-The gif above showcases the Bubble sort algorithm animation using JavaFX.
+*The gif above showcases the Bubble sort algorithm animation using JavaFX.*
 
 ## Description:
 This project was made as a tool for visualizing sorting algorithms. This app allows users to
