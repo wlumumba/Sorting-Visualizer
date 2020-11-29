@@ -57,7 +57,6 @@ public class sortController implements Initializable
     //Declaring choicebox to retrieve selected sort
     @FXML
     private ComboBox sortComboBox;
-
     @FXML
     private Button hoverBtn;
 
