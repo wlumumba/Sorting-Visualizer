@@ -31,12 +31,15 @@ public class SelectionSort
 
             for (int j = i + 1; j < rects.size(); j++)
             {
-                transitionsList.add(Model.colorTwo(rects, j, j, Color.POWDERBLUE));
+                transitionsList.add(Model.colorTwo(rects, minIndx, j, Color.POWDERBLUE));
                 if (rects.get(j).getH() < rects.get(minIndx).getH())
                 {
-                    if (minIndx == i) {
-                        transitionsList.add(Model.colorTwo(rects, minIndx, j, Color.POWDERBLUE));
-                    } else {
+                    if (minIndx == i)
+                    {
+                        transitionsList.add(Model.colorTwo(rects, minIndx, j, Color.SLATEGRAY));
+                    }
+                    else
+                        {
                         transitionsList.add(Model.colorTwo(rects, minIndx, j, Color.SLATEGRAY));
                     }
                     minIndx = j;
@@ -48,12 +51,11 @@ public class SelectionSort
 
             if (minIndx != i)
             {
-                //transitionsList.add(swap(arr, i, minIndx));
                 sp = Model.swapTwo(rects, i, minIndx);
                 this.transitionsList.add(sp);
             }
 
-            //Set last bar to green on each i iteration since its sorted
+            //Set last bar to salmon on each i iteration since its sorted
             FillTransition finalBars = new FillTransition();
             finalBars.setShape(rects.get(i));
             finalBars.setToValue(Color.SALMON);
