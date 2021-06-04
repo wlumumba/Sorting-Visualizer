@@ -16,14 +16,11 @@ user has the option to change the size of the sorted array, as well as the speed
 - Selection sort
 - Quicksort
 
-### Known Bugs:
-- None at this time :)
-
 ### Version/Requirements:
 - Intellij and eclipse.
 
 #### Members:
-- Moussa Dastgheib 
 - Wycliff Lumumba
+- Moussa Dastgheib 
 - Khalid Farhoud
 - Alan Weikman
